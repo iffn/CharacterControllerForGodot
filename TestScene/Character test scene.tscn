@@ -18,8 +18,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28572166, 0, 9.935198)
 [node name="Base" parent="TestWorldParkour" index="0"]
 material_override = ExtResource("2_ypm7t")
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("3_mfj8b")]
-transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 0.6189964, -1.1920929e-07, -1.0024428)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.862169, 0, -0.50662076, 0.24903321, 0.87084514, 0.4238056, 0.44118822, -0.49155745, 0.7508157, 0, 6.165958, 2.799644)
+
+[node name="FirstPersonPlayer" parent="." instance=ExtResource("3_mfj8b")]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, -0.25477195, 0, -0.9051565)
 
 [editable path="TestWorldStations"]
 [editable path="TestWorldParkour"]
