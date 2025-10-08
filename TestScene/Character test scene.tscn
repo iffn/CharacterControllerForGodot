@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhmnfl1itdtv6"]
+
+[ext_resource type="PackedScene" uid="uid://ca8vmp5yxsnui" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/TestWorldParkour.blend" id="1_jou5r"]
+[ext_resource type="PackedScene" uid="uid://dcw42850ri2f5" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/TestWorldStations.blend" id="2_mfj8b"]
+[ext_resource type="Material" uid="uid://wa0y2wly4iyr" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/333333.tres" id="2_ypm7t"]
+[ext_resource type="PackedScene" uid="uid://baq08kwlk5clu" path="res://iffnsStuff/CharacterControllerForGodot/FirstPersonPlayer.tscn" id="3_mfj8b"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="TestWorldStations" parent="." instance=ExtResource("2_mfj8b")]
+
+[node name="Base" parent="TestWorldStations" index="0"]
+material_override = ExtResource("2_ypm7t")
+
+[node name="TestWorldParkour" parent="." instance=ExtResource("1_jou5r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28572166, 0, 9.935198)
+
+[node name="Base" parent="TestWorldParkour" index="0"]
+material_override = ExtResource("2_ypm7t")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("3_mfj8b")]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 0.6189964, -1.1920929e-07, -1.0024428)
+
+[editable path="TestWorldStations"]
+[editable path="TestWorldParkour"]
