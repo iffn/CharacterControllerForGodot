@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://baq08kwlk5clu"]
 
-[ext_resource type="Script" uid="uid://dfhcxf8c4ra61" path="res://FirstPersonPlayerController.gd" id="1_qj5pt"]
+[ext_resource type="Script" uid="uid://dfhcxf8c4ra61" path="res://iffnsStuff/CharacterControllerForGodot/FirstPersonPlayerController.gd" id="1_qj5pt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4yxqe"]
 radius = 0.2
