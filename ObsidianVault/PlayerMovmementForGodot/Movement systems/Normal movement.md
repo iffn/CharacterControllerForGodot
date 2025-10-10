@@ -1,0 +1,12 @@
+Uses:
+[[Crawl]]
+[[Dash]]
+[[Fall]]
+[[Jump]]
+[[Multi jump]]
+[[Slide & Stick]]
+[[Teleport]]
+[[Trampoline bounce]]
+[[Turn]]
+[[Walk and Run]]
+[[Wall jump]]

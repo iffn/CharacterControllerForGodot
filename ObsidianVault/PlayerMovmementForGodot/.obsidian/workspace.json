@@ -1,0 +1,204 @@
+{
+  "main": {
+    "id": "c0388113dcf42de2",
+    "type": "split",
+    "children": [
+      {
+        "id": "5dddc2dfc156e0f7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f9849c089035ab16",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "ed535f55908a7051",
+    "type": "split",
+    "children": [
+      {
+        "id": "80be0a5e6f8e2b2a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7396c96fae7eee18",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "9e30a9b19ad20d66",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "27eb52e2fa845fe6",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "fbd84670f30cfd61",
+    "type": "split",
+    "children": [
+      {
+        "id": "10f741229552759c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "02f0df6326d886c7",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Movement systems.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Movement systems"
+            }
+          },
+          {
+            "id": "ad8ea5baa24c205c",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Movement systems.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Movement systems"
+            }
+          },
+          {
+            "id": "92b74d45199f1050",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "96a71040a0ea7479",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Movement systems.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Movement systems"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "f9849c089035ab16",
+  "lastOpenFiles": [
+    "Movement functions/Crawl.md",
+    "Main/Movement functions.md",
+    "Main/Movement systems.md",
+    "Movement functions/Turn.md",
+    "Main/Properties and functions.md",
+    "Properties and functions/Functions/func _physics_process(delta).md",
+    "Properties and functions/Functions/func _process(delta).md",
+    "Properties and functions/Functions",
+    "Properties and functions/Functions/func _ready().md",
+    "Properties and functions/Properties/Get collisions.md",
+    "Properties and functions/Properties",
+    "Properties and functions/Properties/Get gravitational_acceleration.md",
+    "Properties and functions/Properties/Get jump_input.md",
+    "Properties and functions/Properties/Get sprint_input.md",
+    "Properties and functions/Properties/Get horizontal_move_inputs.md",
+    "Properties and functions/Properties/Set movement_speed_multiplier.md",
+    "Properties and functions/Properties/Get run_speed.md",
+    "Properties and functions/Properties/Get walk_speed.md",
+    "Properties and functions/Properties/Get input_turn_body.md",
+    "Properties and functions/Properties/Get input_turn_head.md",
+    "Properties and functions/Properties/Set collider.md",
+    "Properties and functions/Properties/Get floor_collision.md",
+    "Properties and functions/Properties/Set velocity_horizontal.md",
+    "Properties and functions/Properties/Get velocity_horizontal.md",
+    "Properties and functions/Properties/Set velocity_vertical.md",
+    "Properties and functions/Properties/Get velocity_vertical.md",
+    "Properties and functions/Properties/Set left_hand_position.md",
+    "Properties and functions/Properties/Set right_hand_position.md",
+    "Main",
+    "Properties and functions",
+    "Movement functions",
+    "Movement systems",
+    "Swim"
+  ]
+}
