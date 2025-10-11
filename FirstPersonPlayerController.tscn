@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c7wjy2cr7stg1"]
 
 [ext_resource type="Script" uid="uid://1fc43vuc1ei" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/Main/FirstPersonPlayerController.cs" id="1_58u7l"]
-[ext_resource type="Script" uid="uid://dy4rr12uedbcm" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementSystems/GeneralMovementSystem.cs" id="2_yfdmq"]
+[ext_resource type="Script" uid="uid://gcu1221l1xei" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementSystems/MovementSystem.cs" id="2_yfdmq"]
 [ext_resource type="Script" uid="uid://b6dto84oc1mpv" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Turn.cs" id="3_omjub"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4yxqe"]

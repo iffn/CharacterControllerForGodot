@@ -2,11 +2,11 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public abstract partial class MovementSystem : Node
+public partial class MovementSystem : Node
 {
-    protected FirstPersonPlayerController linkedPlayerController;
+    [Export] MovementModule[] movementModulesInExecutionOrder;
 
-    protected abstract MovementModule[] AllModulesWithoutNullCheckInExecutionOrder { get; }
+    protected FirstPersonPlayerController linkedPlayerController;
 
     List<MovementModule> allValidModules;
 
@@ -17,15 +17,15 @@ public abstract partial class MovementSystem : Node
         allValidModules = new List<MovementModule>();
 
 
-        for (int i = 0; i < AllModulesWithoutNullCheckInExecutionOrder.Length; i++)
+        for (int i = 0; i < movementModulesInExecutionOrder.Length; i++)
         {
-            if (AllModulesWithoutNullCheckInExecutionOrder[i] == null)
+            if (movementModulesInExecutionOrder[i] == null)
             {
                 GD.Print("Warning: A movement module in NormalMovement is null and will be removed.");
             }
             else
             {
-                allValidModules.Add(AllModulesWithoutNullCheckInExecutionOrder[i]);
+                allValidModules.Add(movementModulesInExecutionOrder[i]);
             }
         }
 
@@ -34,9 +34,6 @@ public abstract partial class MovementSystem : Node
             module.Setup(linkedPlayerController);
         }
     }
-
-    
-
 
     public virtual void Enable()
     {
