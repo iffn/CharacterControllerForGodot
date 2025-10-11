@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class FirstPersonPlayerController : CharacterBody3D
+public partial class SimpleFirstPersonPlayerController : CharacterBody3D
 {
 	[Export] public Node3D Head { get; set; }
 

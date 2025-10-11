@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ca8vmp5yxsnui" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/TestWorldParkour.blend" id="1_jou5r"]
 [ext_resource type="PackedScene" uid="uid://dcw42850ri2f5" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/TestWorldStations.blend" id="2_mfj8b"]
 [ext_resource type="Material" uid="uid://wa0y2wly4iyr" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/333333.tres" id="2_ypm7t"]
-[ext_resource type="PackedScene" uid="uid://baq08kwlk5clu" path="res://iffnsStuff/CharacterControllerForGodot/FirstPersonPlayer.tscn" id="3_mfj8b"]
+[ext_resource type="PackedScene" uid="uid://baq08kwlk5clu" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/Simple/SimpleFirstPersonPlayerController.tscn" id="3_mfj8b"]
 [ext_resource type="PhysicsMaterial" uid="uid://xfnea64byw7b" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/physics_material_stairs.tres" id="3_t2jar"]
 [ext_resource type="PhysicsMaterial" uid="uid://ct60fdl06o8qm" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/physics_material_ice.tres" id="4_e7auc"]
 
