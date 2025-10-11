@@ -1,17 +1,18 @@
 [gd_scene load_steps=5 format=3 uid="uid://c7wjy2cr7stg1"]
 
-[ext_resource type="Script" uid="uid://1fc43vuc1ei" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/Main/FirstPersonPlayerController.cs" id="1_58u7l"]
-[ext_resource type="Script" uid="uid://gcu1221l1xei" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/Main/MovementSystem.cs" id="2_yfdmq"]
-[ext_resource type="Script" uid="uid://b6dto84oc1mpv" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Turn.cs" id="3_omjub"]
+[ext_resource type="Script" uid="uid://brui060p06pk5" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/Main/FirstPersonPlayerController.gd" id="1_yfdmq"]
+[ext_resource type="Script" uid="uid://708yngopb0s7" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/Main/MovementSystem.gd" id="2_yfdmq"]
+[ext_resource type="Script" uid="uid://bk2bpyaqun1t3" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Turn.gd" id="3_wp7lj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4yxqe"]
 radius = 0.2
 height = 1.65
 
-[node name="FirstPersonPlayer" type="CharacterBody3D" node_paths=PackedStringArray("Head", "defaultMovementSystem")]
-script = ExtResource("1_58u7l")
-Head = NodePath("Camera3D")
-defaultMovementSystem = NodePath("NormalMovement")
+[node name="FirstPersonPlayer" type="CharacterBody3D" node_paths=PackedStringArray("head", "default_movement_system")]
+script = ExtResource("1_yfdmq")
+head = NodePath("Camera3D")
+mouse_sensitivity = 0.2
+default_movement_system = NodePath("NormalMovement")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0)
@@ -20,9 +21,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.825, 0)
 shape = SubResource("CapsuleShape3D_4yxqe")
 
-[node name="NormalMovement" type="Node" parent="." node_paths=PackedStringArray("movementModulesInExecutionOrder")]
+[node name="NormalMovement" type="Node" parent="." node_paths=PackedStringArray("movement_modules_in_execution_order")]
 script = ExtResource("2_yfdmq")
-movementModulesInExecutionOrder = [NodePath("Turn")]
+movement_modules_in_execution_order = [NodePath("Turn")]
 
 [node name="Turn" type="Node" parent="NormalMovement"]
-script = ExtResource("3_omjub")
+script = ExtResource("3_wp7lj")
