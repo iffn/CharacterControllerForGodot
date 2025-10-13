@@ -3,6 +3,7 @@ extends CharacterBody3D
 
 class_name FirstPersonPlayerController
 
+@export var body_visual: Node3D
 @export var head: Node3D
 @export var walk_speed: float = 5.0
 @export var run_speed: float = 10.0
@@ -17,6 +18,14 @@ var input_mouse_turn: Vector2 = Vector2.ZERO
 
 # --- Movement system management ---
 var _current_movement_system: MovementSystem
+
+func set_body_visual_rotation_world(value: Vector3) -> void:
+	var t := body_visual.global_transform
+	t.basis = Basis.from_euler(value)
+	body_visual.global_transform = t
+
+func get_body_visual_rotation_world() -> Vector3:
+	return body_visual.global_transform.basis.get_euler()
 
 func set_current_movement_system(value: MovementSystem) -> void:
 	if _current_movement_system:
@@ -81,12 +90,24 @@ func _unhandled_input(event: InputEvent) -> void:
 		var mm := event as InputEventMouseMotion
 		var x := mm.relative.x * mouse_sensitivity
 		var y := mm.relative.y * mouse_sensitivity
-		input_mouse_turn = Vector2(x, y)
+		input_mouse_turn += Vector2(x, y)
 
 	# Unlock mouse when pressing Escape
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	if _current_movement_system:
-		_current_movement_system.physics_process(delta)
+		_current_movement_system.callable_process(delta)
+	
+	input_mouse_turn = Vector2.ZERO
+
+func _physics_process(delta: float) -> void:
+	var current_rotation_visual := body_visual.rotation
+	var current_rotation = rotation
+	current_rotation += current_rotation_visual
+	rotation = current_rotation
+	body_visual.rotation = Vector3.ZERO
+	
+	if _current_movement_system:
+		_current_movement_system.callable_physics_process(delta)

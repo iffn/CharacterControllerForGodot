@@ -30,6 +30,10 @@ func disable() -> void:
 	# override in subclasses if needed
 	pass
 
-func physics_process(delta: float) -> void:
+func callable_process(delta: float) -> void:
 	for module in _all_valid_modules:
-		module.physics_process(delta)
+		module.callable_process(delta)
+
+func callable_physics_process(delta: float) -> void:
+	for module in _all_valid_modules:
+		module.callable_physics_process(delta)

@@ -8,13 +8,16 @@
 radius = 0.2
 height = 1.65
 
-[node name="FirstPersonPlayer" type="CharacterBody3D" node_paths=PackedStringArray("head", "default_movement_system")]
+[node name="FirstPersonPlayer" type="CharacterBody3D" node_paths=PackedStringArray("body_visual", "head", "default_movement_system")]
 script = ExtResource("1_yfdmq")
-head = NodePath("Camera3D")
-mouse_sensitivity = 0.2
+body_visual = NodePath("VisualBody")
+head = NodePath("VisualBody/Camera3D")
+jump_velocity = 2.5
 default_movement_system = NodePath("NormalMovement")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="VisualBody" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="VisualBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

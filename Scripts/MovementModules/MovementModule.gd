@@ -18,5 +18,8 @@ func enable() -> void:
 func disable() -> void:
 	pass
 
-func physics_process(delta: float) -> void:
+func callable_process(delta: float) -> void:
+	pass
+
+func callable_physics_process(delta: float) -> void:
 	pass
