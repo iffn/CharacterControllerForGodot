@@ -8,11 +8,10 @@
 radius = 0.2
 height = 1.65
 
-[node name="FirstPersonPlayer" type="CharacterBody3D" node_paths=PackedStringArray("body_visual", "head", "default_movement_system")]
+[node name="FirstPersonPlayer" type="CharacterBody3D" node_paths=PackedStringArray("_body_visual", "_head", "default_movement_system")]
 script = ExtResource("1_yfdmq")
-body_visual = NodePath("VisualBody")
-head = NodePath("VisualBody/Camera3D")
-jump_velocity = 2.5
+_body_visual = NodePath("VisualBody")
+_head = NodePath("VisualBody/Camera3D")
 default_movement_system = NodePath("NormalMovement")
 
 [node name="VisualBody" type="Node3D" parent="."]
