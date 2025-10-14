@@ -1,7 +1,7 @@
 extends MovementModule
 class_name WalkAndRun
 
-func callable_process(delta: float) -> void:
+func callable_physics_process(delta: float) -> void:
 	
 	var forward_speed: float = lerp(
 		linked_player_controller.walk_speed,
@@ -14,6 +14,8 @@ func callable_process(delta: float) -> void:
 		linked_player_controller.walk_speed
 	)
 	
-	new_velocity *= linked_player_controller.input_move_direction
+	new_velocity *= linked_player_controller.input_move_direction_fwd_right
+	
+	print(new_velocity)
 	
 	linked_player_controller.relative_horizontal_velocity_fwd_right = new_velocity

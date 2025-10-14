@@ -47,11 +47,11 @@ var input_mouse_turn: Vector2:
 	get:
 		return _input_mouse_turn
 
-var input_move_direction: Vector2:
+var input_move_direction_fwd_right: Vector2:
 	get: 
 		var return_value := Vector2.ZERO
-		return_value.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-		return_value.y = Input.get_action_strength("move_backward") - Input.get_action_strength("move_forward")
+		return_value.x = Input.get_action_strength("move_forward") - Input.get_action_strength("move_backward")
+		return_value.y = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 		return_value = return_value.normalized()
 		return return_value
 
@@ -89,6 +89,7 @@ var relative_horizontal_velocity_fwd_right: Vector2:
 		v_local.z = -value.x     # forward
 		var new_world: Vector3 = base * v_local
 		velocity = Vector3(new_world.x, v_world.y, new_world.z)
+		print(velocity)
 
 var vertical_velocity: float:
 	get:
@@ -132,3 +133,5 @@ func _physics_process(delta: float) -> void:
 	
 	if _current_movement_system:
 		_current_movement_system.callable_physics_process(delta)
+		
+	move_and_slide()
