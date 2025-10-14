@@ -55,6 +55,18 @@ var input_move_direction_fwd_right: Vector2:
 		return_value = return_value.normalized()
 		return return_value
 
+var input_jump_just_pressed: bool:
+	get:
+		return Input.is_action_just_pressed("jump")
+
+var input_jump_just_released: bool:
+	get:
+		return Input.is_action_just_released("jump")
+
+var input_jump_pressed_or_held: bool:
+	get:
+		return Input.is_action_just_pressed("jump")
+
 var input_sprint: float:
 	get:
 		return Input.get_action_strength("sprint")
@@ -97,6 +109,12 @@ var vertical_velocity: float:
 		var v := velocity
 		v.y = value
 		velocity = v
+
+
+func add_vertical_velocity(value: float) -> void:
+	var v := velocity
+	v.y += value
+	velocity = v
 
 # --- Built in functions ---
 func _ready() -> void:
