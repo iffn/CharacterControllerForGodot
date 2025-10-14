@@ -57,7 +57,7 @@ var input_move_direction_fwd_right: Vector2:
 
 var input_sprint: float:
 	get:
-		return Input.get_action_strength("jump")
+		return Input.get_action_strength("sprint")
 
 # --- Rotation ---
 var body_visual_rotation_world: Vector3:
@@ -89,7 +89,6 @@ var relative_horizontal_velocity_fwd_right: Vector2:
 		v_local.z = -value.x     # forward
 		var new_world: Vector3 = base * v_local
 		velocity = Vector3(new_world.x, v_world.y, new_world.z)
-		print(velocity)
 
 var vertical_velocity: float:
 	get:
