@@ -29,11 +29,37 @@ var current_movement_system: MovementSystem:
 	get:
 		return _current_movement_system
 
-# --- Rotation ---
+# --- Settng access ---
+var walk_speed: float:
+	get:
+		return _walk_speed
+
+var run_speed: float:
+	get:
+		return _run_speed
+
+var jump_velocity: float:
+	get:
+		return _jump_velocity
+
+# --- Input ---
 var input_mouse_turn: Vector2:
 	get:
 		return _input_mouse_turn
 
+var input_move_direction: Vector2:
+	get: 
+		var return_value := Vector2.ZERO
+		return_value.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+		return_value.y = Input.get_action_strength("move_backward") - Input.get_action_strength("move_forward")
+		return_value = return_value.normalized()
+		return return_value
+
+var input_sprint: float:
+	get:
+		return Input.get_action_strength("jump")
+
+# --- Rotation ---
 var body_visual_rotation_world: Vector3:
 	set(value):
 		var t := _body_visual.global_transform

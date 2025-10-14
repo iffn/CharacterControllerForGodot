@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7wjy2cr7stg1"]
+[gd_scene load_steps=6 format=3 uid="uid://c7wjy2cr7stg1"]
 
 [ext_resource type="Script" uid="uid://brui060p06pk5" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/Main/FirstPersonPlayerController.gd" id="1_yfdmq"]
 [ext_resource type="Script" uid="uid://708yngopb0s7" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/Main/MovementSystem.gd" id="2_yfdmq"]
 [ext_resource type="Script" uid="uid://bk2bpyaqun1t3" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Turn.gd" id="3_wp7lj"]
+[ext_resource type="Script" uid="uid://imgxjuek8i62" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/WalkAndRun.gd" id="4_omjub"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4yxqe"]
 radius = 0.2
@@ -25,7 +26,10 @@ shape = SubResource("CapsuleShape3D_4yxqe")
 
 [node name="NormalMovement" type="Node" parent="." node_paths=PackedStringArray("movement_modules_in_execution_order")]
 script = ExtResource("2_yfdmq")
-movement_modules_in_execution_order = [NodePath("Turn")]
+movement_modules_in_execution_order = [NodePath("Turn"), NodePath("WalkAndRun")]
 
 [node name="Turn" type="Node" parent="NormalMovement"]
 script = ExtResource("3_wp7lj")
+
+[node name="WalkAndRun" type="Node" parent="NormalMovement"]
+script = ExtResource("4_omjub")
