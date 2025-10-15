@@ -110,11 +110,18 @@ var vertical_velocity: float:
 		v.y = value
 		velocity = v
 
-
 func add_vertical_velocity(value: float) -> void:
 	var v := velocity
 	v.y += value
 	velocity = v
+
+# --- Collisions ---
+var floor_colliders: Array[KinematicCollision3D]:
+	get:
+		var collisions: Array[KinematicCollision3D] = []
+		for i in range(get_slide_collision_count()):
+			collisions.append(get_slide_collision(i))
+		return collisions
 
 # --- Built in functions ---
 func _ready() -> void:
