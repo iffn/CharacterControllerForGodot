@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7wjy2cr7stg1"]
+[gd_scene load_steps=10 format=3 uid="uid://c7wjy2cr7stg1"]
 
 [ext_resource type="Script" uid="uid://brui060p06pk5" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/Main/FirstPersonPlayerController.gd" id="1_yfdmq"]
 [ext_resource type="Script" uid="uid://708yngopb0s7" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/Main/MovementSystem.gd" id="2_yfdmq"]
@@ -7,16 +7,17 @@
 [ext_resource type="Script" uid="uid://bftfb7n0yykke" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Jump.gd" id="5_wp7lj"]
 [ext_resource type="Script" uid="uid://doiaqxcomokpf" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Fall.gd" id="6_occdn"]
 [ext_resource type="Script" uid="uid://dkogmlwhmi2q0" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Slide.gd" id="7_cemnv"]
+[ext_resource type="Script" uid="uid://bv2o4y78s4soj" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Crouch.gd" id="8_2kfa4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4yxqe"]
 radius = 0.2
 height = 1.65
 
-[node name="FirstPersonPlayer" type="CharacterBody3D" node_paths=PackedStringArray("_body_visual", "_head", "default_movement_system")]
+[node name="FirstPersonPlayer" type="CharacterBody3D" node_paths=PackedStringArray("_body_visual", "_head", "_default_movement_system")]
 script = ExtResource("1_yfdmq")
 _body_visual = NodePath("VisualBody")
 _head = NodePath("VisualBody/Camera3D")
-default_movement_system = NodePath("NormalMovement")
+_default_movement_system = NodePath("NormalMovement")
 
 [node name="VisualBody" type="Node3D" parent="."]
 
@@ -29,7 +30,7 @@ shape = SubResource("CapsuleShape3D_4yxqe")
 
 [node name="NormalMovement" type="Node" parent="." node_paths=PackedStringArray("movement_modules_in_execution_order")]
 script = ExtResource("2_yfdmq")
-movement_modules_in_execution_order = [NodePath("Turn"), NodePath("WalkAndRun"), NodePath("Jump"), NodePath("Fall"), NodePath("Slide")]
+movement_modules_in_execution_order = [NodePath("Turn"), NodePath("WalkAndRun"), NodePath("Jump"), NodePath("Fall"), NodePath("Slide"), NodePath("Crouch")]
 
 [node name="Turn" type="Node" parent="NormalMovement"]
 script = ExtResource("3_wp7lj")
@@ -45,3 +46,6 @@ script = ExtResource("6_occdn")
 
 [node name="Slide" type="Node" parent="NormalMovement"]
 script = ExtResource("7_cemnv")
+
+[node name="Crouch" type="Node" parent="NormalMovement"]
+script = ExtResource("8_2kfa4")

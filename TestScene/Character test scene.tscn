@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhmnfl1itdtv6"]
+[gd_scene load_steps=8 format=3 uid="uid://dhmnfl1itdtv6"]
 
 [ext_resource type="PackedScene" uid="uid://ca8vmp5yxsnui" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/TestWorldParkour.blend" id="1_jou5r"]
 [ext_resource type="PackedScene" uid="uid://dcw42850ri2f5" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/TestWorldStations.blend" id="2_mfj8b"]
@@ -6,6 +6,8 @@
 [ext_resource type="PhysicsMaterial" uid="uid://xfnea64byw7b" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/physics_material_stairs.tres" id="3_t2jar"]
 [ext_resource type="PhysicsMaterial" uid="uid://ct60fdl06o8qm" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/physics_material_ice.tres" id="4_e7auc"]
 [ext_resource type="PackedScene" uid="uid://c7wjy2cr7stg1" path="res://iffnsStuff/CharacterControllerForGodot/FirstPersonPlayerController.tscn" id="6_t2jar"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t2jar"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -31,6 +33,15 @@ transform = Transform3D(0.862169, 0, -0.50662076, 0.24903321, 0.87084514, 0.4238
 
 [node name="FirstPersonPlayer" parent="." instance=ExtResource("6_t2jar")]
 transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, -0.375, 0, -1.025)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1.5, -1.5)
+material_override = ExtResource("2_ypm7t")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_t2jar")
 
 [editable path="TestWorldStations"]
 [editable path="TestWorldParkour"]

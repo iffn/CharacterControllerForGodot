@@ -6,16 +6,19 @@ class_name FirstPersonPlayerController
 # --- Inspector assignments ---
 @export var _body_visual: Node3D
 @export var _head: Node3D
+@export var _default_movement_system: MovementSystem
 @export var _walk_speed: float = 5.0
 @export var _run_speed: float = 10.0
 @export var _jump_velocity: float = 4.5
 @export var _mouse_sensitivity: float = 0.002
-@export var default_movement_system: MovementSystem
 
 # --- Internal values ---
 var GRAVITY: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var _input_mouse_turn: Vector2 = Vector2.ZERO
 var _current_movement_system: MovementSystem
+var _collider_height_original: float
+var _height_multiplier: float
+var _head_position_original: Vector3
 
 # --- System management ---
 var current_movement_system: MovementSystem:
@@ -123,12 +126,33 @@ var floor_colliders: Array[KinematicCollision3D]:
 			collisions.append(get_slide_collision(i))
 		return collisions
 
+var height_multiplier: float:
+	set(value):
+		_height_multiplier = value
+		
+		var capsule = $CollisionShape3D.shape as CapsuleShape3D
+		if(capsule):
+			capsule.height = _collider_height_original * _height_multiplier
+		
+		var collision_shape = $CollisionShape3D
+		collision_shape.position.y = _collider_height_original * _height_multiplier * 0.5
+		
+		var head_position := _head.position
+		head_position.y = _head_position_original.y * _height_multiplier
+		_head.position = head_position
+
 # --- Built in functions ---
 func _ready() -> void:
-	_current_movement_system = default_movement_system
+	_current_movement_system = _default_movement_system
 	if _current_movement_system:
 		_current_movement_system.setup(self)
-
+	
+	var capsule = $CollisionShape3D.shape as CapsuleShape3D
+	if(capsule):
+		_collider_height_original = capsule.height
+	
+	_head_position_original = _head.position
+	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _unhandled_input(event: InputEvent) -> void:
