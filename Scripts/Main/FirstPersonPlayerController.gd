@@ -19,6 +19,7 @@ var _current_movement_system: MovementSystem
 var _collider_height_original: float
 var _height_multiplier: float
 var _head_position_original: Vector3
+var _in_areas: Array[Area3D]
 
 # --- System management ---
 var current_movement_system: MovementSystem:
@@ -118,7 +119,17 @@ func add_vertical_velocity(value: float) -> void:
 	v.y += value
 	velocity = v
 
-# --- Collisions ---
+func enter_area (area: Area3D) -> void:
+	if(_in_areas.count(area) == 0):
+		_in_areas.append(area)
+
+func exit_area (area: Area3D) -> void:
+	_in_areas.erase(area)
+
+var in_areas: Array[Area3D]:
+	get:
+		return _in_areas
+
 var floor_colliders: Array[KinematicCollision3D]:
 	get:
 		var collisions: Array[KinematicCollision3D] = []

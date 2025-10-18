@@ -1,4 +1,4 @@
-extends Node
+extends Area3D
 
 class_name Fluid
 
@@ -7,3 +7,13 @@ class_name Fluid
 var density: float:
 	get:
 		return _density
+
+func _on_body_entered(body: Node3D) -> void:
+	var character := body as FirstPersonPlayerController
+	if(character):
+		character.enter_area(self)
+
+func _on_body_exited(body: Node3D) -> void:
+	var character := body as FirstPersonPlayerController
+	if(character):
+		character.exit_area(self)

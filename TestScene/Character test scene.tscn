@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dhmnfl1itdtv6"]
+[gd_scene load_steps=9 format=3 uid="uid://dhmnfl1itdtv6"]
 
 [ext_resource type="PackedScene" uid="uid://ca8vmp5yxsnui" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/TestWorldParkour.blend" id="1_jou5r"]
 [ext_resource type="PackedScene" uid="uid://dcw42850ri2f5" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/TestWorldStations.blend" id="2_mfj8b"]
@@ -6,10 +6,7 @@
 [ext_resource type="PhysicsMaterial" uid="uid://xfnea64byw7b" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/physics_material_stairs.tres" id="3_t2jar"]
 [ext_resource type="PhysicsMaterial" uid="uid://ct60fdl06o8qm" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/physics_material_ice.tres" id="4_e7auc"]
 [ext_resource type="PackedScene" uid="uid://c7wjy2cr7stg1" path="res://iffnsStuff/CharacterControllerForGodot/FirstPersonPlayerController.tscn" id="6_t2jar"]
-[ext_resource type="Material" uid="uid://dcha8bf14t8ow" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/DummyWater.tres" id="7_bfsqf"]
-[ext_resource type="Script" uid="uid://dwep882vf5md1" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/Environment/Fluid.gd" id="8_u0clc"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_a4ftw"]
+[ext_resource type="PackedScene" uid="uid://d5yqmd3rjvpl" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/Environment/WaterBox.tscn" id="7_e7auc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t2jar"]
 
@@ -38,15 +35,8 @@ transform = Transform3D(0.862169, 0, -0.50662076, 0.24903321, 0.87084514, 0.4238
 [node name="FirstPersonPlayer" parent="." instance=ExtResource("6_t2jar")]
 transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, -0.375, 0, -1.025)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+[node name="WaterBox" parent="." instance=ExtResource("7_e7auc")]
 transform = Transform3D(3.5, 0, 0, 0, 1.0906982, 0, 0, 0, 5.5933685, 5.518813, -0.6440048, -4.108281)
-material_override = ExtResource("7_bfsqf")
-
-[node name="Area3D" type="Area3D" parent="CSGBox3D2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D2/Area3D"]
-shape = SubResource("BoxShape3D_a4ftw")
-script = ExtResource("8_u0clc")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1.5, -1.5)
