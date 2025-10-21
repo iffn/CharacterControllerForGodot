@@ -75,6 +75,11 @@ var input_sprint: float:
 	get:
 		return Input.get_action_strength("sprint")
 
+# --- Position ---
+var head_position_world: Vector3:
+	get:
+		return _head.global_position
+
 # --- Rotation ---
 var body_visual_rotation_world: Vector3:
 	set(value):

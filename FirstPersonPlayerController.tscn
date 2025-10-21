@@ -51,5 +51,9 @@ script = ExtResource("7_cemnv")
 [node name="Crouch" type="Node" parent="NormalMovement"]
 script = ExtResource("8_2kfa4")
 
-[node name="SwimDetector" type="Node" parent="NormalMovement"]
+[node name="SwimDetector" type="Node" parent="NormalMovement" node_paths=PackedStringArray("_swim_system_to_switch_to")]
 script = ExtResource("9_6l6vu")
+_swim_system_to_switch_to = NodePath("../../Swim")
+
+[node name="Swim" type="Node" parent="."]
+script = ExtResource("2_yfdmq")
