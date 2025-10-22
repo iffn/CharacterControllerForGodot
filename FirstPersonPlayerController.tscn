@@ -1,14 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7wjy2cr7stg1"]
+[gd_scene load_steps=12 format=3 uid="uid://c7wjy2cr7stg1"]
 
 [ext_resource type="Script" uid="uid://brui060p06pk5" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/Main/FirstPersonPlayerController.gd" id="1_yfdmq"]
 [ext_resource type="Script" uid="uid://708yngopb0s7" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/Main/MovementSystem.gd" id="2_yfdmq"]
 [ext_resource type="Script" uid="uid://bk2bpyaqun1t3" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Turn.gd" id="3_wp7lj"]
-[ext_resource type="Script" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/WalkAndRun.gd" id="4_omjub"]
+[ext_resource type="Script" uid="uid://imgxjuek8i62" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/WalkAndRun.gd" id="4_omjub"]
 [ext_resource type="Script" uid="uid://bftfb7n0yykke" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Jump.gd" id="5_wp7lj"]
 [ext_resource type="Script" uid="uid://doiaqxcomokpf" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Fall.gd" id="6_occdn"]
-[ext_resource type="Script" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Slide.gd" id="7_cemnv"]
-[ext_resource type="Script" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Crouch.gd" id="8_2kfa4"]
+[ext_resource type="Script" uid="uid://dkogmlwhmi2q0" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Slide.gd" id="7_cemnv"]
+[ext_resource type="Script" uid="uid://bv2o4y78s4soj" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Crouch.gd" id="8_2kfa4"]
 [ext_resource type="Script" uid="uid://daa0dusgybip3" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/SwimDetector.gd" id="9_6l6vu"]
+[ext_resource type="Script" uid="uid://cb6pp3owy1gai" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Swim.gd" id="10_itkap"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4yxqe"]
 radius = 0.2
@@ -18,7 +19,7 @@ height = 1.65
 script = ExtResource("1_yfdmq")
 _body_visual = NodePath("VisualBody")
 _head = NodePath("VisualBody/Camera3D")
-_default_movement_system = NodePath("NormalMovement")
+_default_movement_system = NodePath("Systems/NormalMovement")
 
 [node name="VisualBody" type="Node3D" parent="."]
 
@@ -29,31 +30,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.825, 0)
 shape = SubResource("CapsuleShape3D_4yxqe")
 
-[node name="NormalMovement" type="Node" parent="." node_paths=PackedStringArray("movement_modules_in_execution_order")]
-script = ExtResource("2_yfdmq")
-movement_modules_in_execution_order = [NodePath("Turn"), NodePath("WalkAndRun"), NodePath("Jump"), NodePath("Fall"), NodePath("Slide"), NodePath("Crouch"), NodePath("SwimDetector")]
+[node name="Systems" type="Node" parent="."]
 
-[node name="Turn" type="Node" parent="NormalMovement"]
+[node name="NormalMovement" type="Node" parent="Systems" node_paths=PackedStringArray("movement_modules_in_execution_order")]
+script = ExtResource("2_yfdmq")
+movement_modules_in_execution_order = [NodePath("../../Modules/Turn"), NodePath("../../Modules/WalkAndRun"), NodePath("../../Modules/Jump"), NodePath("../../Modules/Fall"), NodePath("../../Modules/Slide"), NodePath("../../Modules/Crouch"), NodePath("../../Modules/SwimDetector")]
+
+[node name="Swim" type="Node" parent="Systems" node_paths=PackedStringArray("movement_modules_in_execution_order")]
+script = ExtResource("2_yfdmq")
+movement_modules_in_execution_order = [NodePath("../../Modules/Turn"), NodePath("../../Modules/SwimDetector"), NodePath("../../Modules/Swim")]
+
+[node name="Modules" type="Node" parent="."]
+
+[node name="Turn" type="Node" parent="Modules"]
 script = ExtResource("3_wp7lj")
 
-[node name="WalkAndRun" type="Node" parent="NormalMovement"]
+[node name="WalkAndRun" type="Node" parent="Modules"]
 script = ExtResource("4_omjub")
 
-[node name="Jump" type="Node" parent="NormalMovement"]
+[node name="Jump" type="Node" parent="Modules"]
 script = ExtResource("5_wp7lj")
 
-[node name="Fall" type="Node" parent="NormalMovement"]
+[node name="Fall" type="Node" parent="Modules"]
 script = ExtResource("6_occdn")
 
-[node name="Slide" type="Node" parent="NormalMovement"]
+[node name="Slide" type="Node" parent="Modules"]
 script = ExtResource("7_cemnv")
 
-[node name="Crouch" type="Node" parent="NormalMovement"]
+[node name="Crouch" type="Node" parent="Modules"]
 script = ExtResource("8_2kfa4")
 
-[node name="SwimDetector" type="Node" parent="NormalMovement" node_paths=PackedStringArray("_swim_system_to_switch_to")]
+[node name="SwimDetector" type="Node" parent="Modules" node_paths=PackedStringArray("_swim_system_to_switch_to")]
 script = ExtResource("9_6l6vu")
-_swim_system_to_switch_to = NodePath("../../Swim")
+_swim_system_to_switch_to = NodePath("../../Systems/Swim")
 
-[node name="Swim" type="Node" parent="."]
-script = ExtResource("2_yfdmq")
+[node name="Swim" type="Node" parent="Modules"]
+script = ExtResource("10_itkap")
