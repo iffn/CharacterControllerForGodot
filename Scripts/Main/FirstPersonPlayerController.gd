@@ -95,6 +95,10 @@ var head_rotation: Vector3:
 	set(value):
 		_head.rotation = value
 
+func convert_from_head_to_body(head_local: Vector3) -> Vector3:
+	var world_vector := _head.to_global(head_local)
+	return to_local(world_vector)
+
 # --- Velocity ---
 var relative_horizontal_velocity_fwd_right: Vector2:
 	get:

@@ -64,5 +64,6 @@ script = ExtResource("8_2kfa4")
 script = ExtResource("9_6l6vu")
 _swim_system_to_switch_to = NodePath("../../Systems/Swim")
 
-[node name="Swim" type="Node" parent="Modules"]
+[node name="Swim" type="Node" parent="Modules" node_paths=PackedStringArray("linked_swim_detector")]
 script = ExtResource("10_itkap")
+linked_swim_detector = NodePath("../SwimDetector")
