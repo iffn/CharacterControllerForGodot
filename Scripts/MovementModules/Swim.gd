@@ -54,9 +54,11 @@ func swim(head_in_water: bool):
 	
 	var velocity_body := linked_player_controller.convert_from_head_to_body(new_velocity)
 	
+	print(velocity_body)
+	
 	linked_player_controller.relative_horizontal_velocity_fwd_right = Vector2(
 		velocity_body.x, velocity_body.z
 	)
 	
 	if(head_in_water || velocity_body.y < 0):
-		linked_player_controller.add_vertical_velocity(velocity_body.y)
+		linked_player_controller.vertical_velocity = velocity_body.y
