@@ -69,7 +69,7 @@ var input_jump_just_released: bool:
 
 var input_jump_pressed_or_held: bool:
 	get:
-		return Input.is_action_just_pressed("jump")
+		return Input.is_action_pressed("jump")
 
 var input_sprint: float:
 	get:
