@@ -41,7 +41,7 @@ func swim(head_in_water: bool):
 			linked_player_controller.input_sprint
 			)
 	else:
-		forward_speed = linked_player_controller.walk_speed
+		forward_speed = swim_normal_speed
 	
 	# Determine and apply new velocity.
 	var new_velocity := Vector3(
@@ -54,7 +54,7 @@ func swim(head_in_water: bool):
 	
 	var velocity_body := linked_player_controller.convert_from_head_to_body(new_velocity)
 	
-	print(velocity_body)
+	print(str(new_velocity) + " -> " + str(velocity_body))
 	
 	linked_player_controller.relative_horizontal_velocity_fwd_right = Vector2(
 		velocity_body.x, velocity_body.z
@@ -62,3 +62,5 @@ func swim(head_in_water: bool):
 	
 	if(head_in_water || velocity_body.y < 0):
 		linked_player_controller.vertical_velocity = velocity_body.y
+	else:
+		linked_player_controller.vertical_velocity = 0
