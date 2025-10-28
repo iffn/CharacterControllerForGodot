@@ -21,7 +21,7 @@ func in_fluid(sample_point_world: Vector3) -> bool:
 	# Check if the local position is inside the shape
 	if shape is BoxShape3D:
 		var box_shape = shape as BoxShape3D
-		var extents = box_shape.size  # BoxShape3D uses full size, not half-extents
+		var extents = box_shape.size * 0.5  # BoxShape3D uses full size, not half-extents
 		return (
 			local_position.x >= -extents.x && local_position.x <= extents.x &&
 			local_position.y >= -extents.y && local_position.y <= extents.y &&
