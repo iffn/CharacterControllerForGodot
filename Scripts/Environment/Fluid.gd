@@ -12,12 +12,15 @@ func in_fluid(sample_point_world: Vector3) -> bool:
 	var collision_shape := get_child(0) as CollisionShape3D
 	if not collision_shape:
 		return false
-	# Get the shape (e.g., BoxShape3D)
+	
+	# Get the shape
 	var shape := collision_shape.shape
 	if not shape:
 		return false
+	
 	# Convert the position to the Area3D's local space
 	var local_position := to_local(sample_point_world)
+	
 	# Check if the local position is inside the shape
 	if shape is BoxShape3D:
 		var box_shape = shape as BoxShape3D

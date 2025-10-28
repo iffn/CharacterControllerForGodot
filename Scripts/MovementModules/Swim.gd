@@ -34,7 +34,7 @@ func swim(head_in_water: bool):
 	# Determine forward speed. Only sprint when going forward,
 	var forward_speed: float
 	
-	if(input2D.x > 0):
+	if(input.x > 0):
 		forward_speed = lerp(
 			swim_normal_speed,
 			swim_fast_speed,
@@ -54,7 +54,8 @@ func swim(head_in_water: bool):
 	
 	var velocity_body := linked_player_controller.convert_from_head_to_body(new_velocity)
 	
-	print(str(new_velocity) + " -> " + str(velocity_body))
+	# print(str(new_velocity) + " -> " + str(velocity_body))
+	# print(str(head_in_water) + " -> " + str(head_in_water || velocity_body.y < 0))
 	
 	linked_player_controller.relative_horizontal_velocity_fwd_right = Vector2(
 		velocity_body.x, velocity_body.z
