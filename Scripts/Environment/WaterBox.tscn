@@ -5,15 +5,20 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a4ftw"]
 
-[node name="CSGBox3D2" type="CSGBox3D"]
-transform = Transform3D(3.5, 0, 0, 0, 1.0906982, 0, 0, 0, 5.5933685, 0, 0, 0)
+[node name="WaterBox" type="Node3D"]
+
+[node name="FrontFaceBox" type="CSGBox3D" parent="."]
 material_override = ExtResource("1_nyu27")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="BackFaceBox" type="CSGBox3D" parent="."]
+material_override = ExtResource("1_nyu27")
+size = Vector3(-1, -1, -1)
+
+[node name="WaterArea" type="Area3D" parent="."]
 script = ExtResource("2_st8qk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaterArea"]
 shape = SubResource("BoxShape3D_a4ftw")
 
-[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
-[connection signal="body_exited" from="Area3D" to="Area3D" method="_on_body_exited"]
+[connection signal="body_entered" from="WaterArea" to="WaterArea" method="_on_body_entered"]
+[connection signal="body_exited" from="WaterArea" to="WaterArea" method="_on_body_exited"]
