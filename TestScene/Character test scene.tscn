@@ -36,8 +36,7 @@ transform = Transform3D(0.862169, 0, -0.50662076, 0.24903321, 0.87084514, 0.4238
 transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, -0.375, 0, -1.025)
 
 [node name="WaterBox" parent="." instance=ExtResource("7_e7auc")]
-transform = Transform3D(3.5, 0, 0, 0, 1.0906982, 0, 0, 0, 5.5933685, 18, -1.6090122, -6.234873)
-size = Vector3(1.2419434, 2.7695313, 1.760498)
+transform = Transform3D(4.3468018, 0, 0, 0, 3.0207229, 0, 0, 0, 9.847115, 18, -1.6090122, -6.234873)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1.5, -1.5)
