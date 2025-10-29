@@ -23,11 +23,15 @@ func setup(player: FirstPersonPlayerController) -> void:
 		module.setup(linked_player_controller)
 
 func enable() -> void:
-	# override in subclasses if needed
+	for i in _all_valid_modules.size():
+		var module := _all_valid_modules[i]
+		module.enable()
 	pass
 
 func disable() -> void:
-	# override in subclasses if needed
+	for i in _all_valid_modules.size():
+		var module := _all_valid_modules[i]
+		module.disable()
 	pass
 
 func callable_process(delta: float) -> void:
