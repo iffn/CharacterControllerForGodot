@@ -2,7 +2,6 @@
 extends Node
 class_name MovementSystem
 
-@export var test: String = "blue"
 @export var movement_modules_in_execution_order: Array[MovementModule] = []
 
 var linked_player_controller: FirstPersonPlayerController
