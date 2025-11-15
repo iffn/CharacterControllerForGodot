@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dhmnfl1itdtv6"]
+[gd_scene load_steps=13 format=3 uid="uid://dhmnfl1itdtv6"]
 
 [ext_resource type="PackedScene" uid="uid://ca8vmp5yxsnui" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/TestWorldParkour.blend" id="1_jou5r"]
 [ext_resource type="PackedScene" uid="uid://dcw42850ri2f5" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/TestWorldStations.blend" id="2_mfj8b"]
@@ -7,6 +7,7 @@
 [ext_resource type="PhysicsMaterial" uid="uid://ct60fdl06o8qm" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/physics_material_ice.tres" id="4_e7auc"]
 [ext_resource type="PackedScene" uid="uid://c7wjy2cr7stg1" path="res://iffnsStuff/CharacterControllerForGodot/FirstPersonPlayerController.tscn" id="6_t2jar"]
 [ext_resource type="PackedScene" uid="uid://d5yqmd3rjvpl" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/Environment/WaterBox.tscn" id="7_e7auc"]
+[ext_resource type="PackedScene" uid="uid://gdwjvanamfd8" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/vehicle.tscn" id="8_bfsqf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e7auc"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -74,6 +75,9 @@ size = Vector3(46, 0, 10)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/StaticBody3D"]
 visible = false
 shape = SubResource("BoxShape3D_bfsqf")
+
+[node name="Vehicle" parent="." instance=ExtResource("8_bfsqf")]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 0, 0.25430524, 2.2609625)
 
 [editable path="TestWorldStations"]
 [editable path="TestWorldParkour"]

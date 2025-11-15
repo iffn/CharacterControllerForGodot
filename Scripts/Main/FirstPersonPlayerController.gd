@@ -11,6 +11,7 @@ class_name FirstPersonPlayerController
 @export var _run_speed: float = 10.0
 @export var _jump_velocity: float = 4.5
 @export var _mouse_sensitivity: float = 0.002
+@export var _collider: CollisionShape3D
 
 # --- Internal values ---
 var GRAVITY: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -20,6 +21,7 @@ var _collider_height_original: float
 var _height_multiplier: float
 var _head_position_original: Vector3
 var _in_areas: Array[Area3D]
+var _physics_active := true
 
 # --- System management ---
 var current_movement_system: MovementSystem:
@@ -32,6 +34,22 @@ var current_movement_system: MovementSystem:
 			_current_movement_system.enable()
 	get:
 		return _current_movement_system
+
+func reparent_visual_body_if_assigned(new_parent : Node3D):
+	var switch_back := new_parent == null
+	
+	_physics_active = switch_back
+	set_physics_process(switch_back)
+	_collider.disabled = not switch_back
+	
+	if(switch_back):
+		global_position = _body_visual.global_position
+		global_rotation = _body_visual.global_rotation
+		_body_visual.reparent(self)
+	else:
+		_body_visual.reparent(new_parent)
+		_body_visual.position = Vector3(0,0,0)
+		_body_visual.rotation = Vector3(0,0,0)
 
 # --- Settng access ---
 var walk_speed: float:
@@ -208,13 +226,15 @@ func _process(delta: float) -> void:
 	_input_mouse_turn = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
-	var current_rotation_visual := _body_visual.rotation
-	var current_rotation = rotation
-	current_rotation += current_rotation_visual
-	rotation = current_rotation
-	_body_visual.rotation = Vector3.ZERO
+	if(_physics_active):
+		var current_rotation_visual := _body_visual.rotation
+		var current_rotation = rotation
+		current_rotation += current_rotation_visual
+		rotation = current_rotation
+		_body_visual.rotation = Vector3.ZERO
 	
 	if _current_movement_system:
 		_current_movement_system.callable_physics_process(delta)
-		
-	move_and_slide()
+	
+	if(_physics_active):
+		move_and_slide()
