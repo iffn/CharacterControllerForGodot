@@ -33,6 +33,10 @@ func disable() -> void:
 		module.disable()
 	pass
 
+func input_event(event: InputEvent) -> void:
+	for module in _all_valid_modules:
+		module.input_event(event)
+
 func callable_process(delta: float) -> void:
 	for module in _all_valid_modules:
 		module.callable_process(delta)

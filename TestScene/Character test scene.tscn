@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dhmnfl1itdtv6"]
+[gd_scene load_steps=12 format=3 uid="uid://dhmnfl1itdtv6"]
 
 [ext_resource type="PackedScene" uid="uid://ca8vmp5yxsnui" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/TestWorldParkour.blend" id="1_jou5r"]
 [ext_resource type="PackedScene" uid="uid://dcw42850ri2f5" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/TestWorldStations.blend" id="2_mfj8b"]
@@ -21,6 +21,9 @@ sky = SubResource("Sky_bfsqf")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_bfsqf"]
+size = Vector3(46, 0, 10)
+
 [node name="Node3D" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -38,20 +41,39 @@ physics_material_override = ExtResource("3_t2jar")
 physics_material_override = ExtResource("4_e7auc")
 
 [node name="TestWorldParkour" parent="." instance=ExtResource("1_jou5r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28572166, 0, 9.935198)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
 
 [node name="Base" parent="TestWorldParkour" index="0"]
 material_override = ExtResource("2_ypm7t")
+
+[node name="CollisionShape3D" parent="TestWorldParkour/Base/StaticBody3D" index="0"]
+visible = false
+
+[node name="CollisionShape3D" parent="TestWorldParkour/Slide/StaticBody3D" index="0"]
+visible = false
+
+[node name="CollisionShape3D" parent="TestWorldParkour/TopFace/StaticBody3D" index="0"]
+visible = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.862169, 0, -0.50662076, 0.24903321, 0.87084514, 0.4238056, 0.44118822, -0.49155745, 0.7508157, 0, 6.165958, 2.799644)
 
 [node name="FirstPersonPlayer" parent="." instance=ExtResource("6_t2jar")]
-transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, -0.375, 0, -1.025)
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 2.4710832, 0, -0.97419786)
 
 [node name="WaterBox" parent="." instance=ExtResource("7_e7auc")]
 transform = Transform3D(4.3468018, 0, 0, 0, 3.0207229, 0, 0, 0, 9.847115, 18, -1.6090122, -6.234873)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 5)
+material_override = ExtResource("2_ypm7t")
+size = Vector3(46, 0, 10)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/StaticBody3D"]
+visible = false
+shape = SubResource("BoxShape3D_bfsqf")
 
 [editable path="TestWorldStations"]
 [editable path="TestWorldParkour"]

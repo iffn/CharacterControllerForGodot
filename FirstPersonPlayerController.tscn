@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c7wjy2cr7stg1"]
+[gd_scene load_steps=13 format=3 uid="uid://c7wjy2cr7stg1"]
 
 [ext_resource type="Script" uid="uid://brui060p06pk5" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/Main/FirstPersonPlayerController.gd" id="1_yfdmq"]
 [ext_resource type="Script" uid="uid://708yngopb0s7" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/Main/MovementSystem.gd" id="2_yfdmq"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bv2o4y78s4soj" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Crouch.gd" id="8_2kfa4"]
 [ext_resource type="Script" uid="uid://daa0dusgybip3" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/SwimDetector.gd" id="9_6l6vu"]
 [ext_resource type="Script" uid="uid://cb6pp3owy1gai" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Swim.gd" id="10_itkap"]
+[ext_resource type="Script" uid="uid://d0efl4ih880ok" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Interact.gd" id="11_4gol3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4yxqe"]
 radius = 0.2
@@ -34,7 +35,7 @@ shape = SubResource("CapsuleShape3D_4yxqe")
 
 [node name="NormalMovement" type="Node" parent="Systems" node_paths=PackedStringArray("movement_modules_in_execution_order")]
 script = ExtResource("2_yfdmq")
-movement_modules_in_execution_order = [NodePath("../../Modules/Turn"), NodePath("../../Modules/WalkAndRun"), NodePath("../../Modules/Jump"), NodePath("../../Modules/Fall"), NodePath("../../Modules/Slide"), NodePath("../../Modules/Crouch"), NodePath("../../Modules/SwimDetector")]
+movement_modules_in_execution_order = [NodePath("../../Modules/Turn"), NodePath("../../Modules/WalkAndRun"), NodePath("../../Modules/Jump"), NodePath("../../Modules/Fall"), NodePath("../../Modules/Slide"), NodePath("../../Modules/Crouch"), NodePath("../../Modules/SwimDetector"), NodePath("../../Modules/Interact")]
 
 [node name="Swim" type="Node" parent="Systems" node_paths=PackedStringArray("movement_modules_in_execution_order")]
 script = ExtResource("2_yfdmq")
@@ -67,4 +68,9 @@ _movement_system_to_switch_to = NodePath("../../Systems/NormalMovement")
 
 [node name="Swim" type="Node" parent="Modules" node_paths=PackedStringArray("linked_swim_detector")]
 script = ExtResource("10_itkap")
+swim_normal_speed = null
+swim_fast_speed = null
 linked_swim_detector = NodePath("../SwimDetector")
+
+[node name="Interact" type="Node" parent="Modules"]
+script = ExtResource("11_4gol3")

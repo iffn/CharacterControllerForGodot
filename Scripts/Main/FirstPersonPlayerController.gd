@@ -95,6 +95,10 @@ var head_rotation: Vector3:
 	set(value):
 		_head.rotation = value
 
+var look_direction_world: Vector3:
+	get:
+		return -_head.global_transform.basis.z.normalized() # Negative since -z = forward
+
 func convert_from_head_to_body(head_local_vector: Vector3) -> Vector3:
 	# Convert the direction from head's local space to world space
 	var world_vector = _head.global_transform.basis * head_local_vector
@@ -130,6 +134,7 @@ func add_vertical_velocity(value: float) -> void:
 	v.y += value
 	velocity = v
 
+# Areas and colisions
 func enter_area (area: Area3D) -> void:
 	if(_in_areas.count(area) == 0):
 		_in_areas.append(area)
@@ -148,6 +153,11 @@ var floor_colliders: Array[KinematicCollision3D]:
 			collisions.append(get_slide_collision(i))
 		return collisions
 
+var physics_space: PhysicsDirectSpaceState3D:
+	get:
+		return self.get_world_3d().direct_space_state
+
+# Size
 var height_multiplier: float:
 	set(value):
 		_height_multiplier = value
@@ -187,6 +197,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	# Unlock mouse when pressing Escape
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		
+	if _current_movement_system:
+		_current_movement_system.input_event(event)
 
 func _process(delta: float) -> void:
 	if _current_movement_system:

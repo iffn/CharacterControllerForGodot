@@ -12,6 +12,9 @@ func setup(player: FirstPersonPlayerController) -> void:
 	linked_player_controller = player
 	_setup_ran = true
 
+func input_event(event: InputEvent) -> void:
+	pass
+
 func enable() -> void:
 	pass
 
