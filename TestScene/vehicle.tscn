@@ -1,14 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ciqlcp0hmcbqd"]
+[gd_scene load_steps=3 format=3 uid="uid://ciqlcp0hmcbqd"]
 
 [ext_resource type="Script" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/TestVehicle.gd" id="1_eiotj"]
-[ext_resource type="Script" uid="uid://dlgf70krsxy5y" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/Environment/Seat.gd" id="1_kuotl"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_e7auc"]
-size = Vector3(1, 0.2, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bfsqf"]
-transparency = 1
-albedo_color = Color(0, 1, 1, 0.16078432)
+[ext_resource type="PackedScene" uid="uid://b2p282ow6u31h" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/Seat.tscn" id="2_eiotj"]
 
 [node name="Vehicle" type="Node3D"]
 script = ExtResource("1_eiotj")
@@ -25,17 +18,6 @@ size = Vector3(1.1318359, 1.2252197, 0.15484619)
 transform = Transform3D(0.99999464, 0, -0.003281213, 0, 1, 0, 0.003281213, 0, 0.99999464, 0.049430847, 0.0022653937, 0.084162)
 size = Vector3(2.8095703, 0.1060791, 0.61035156)
 
-[node name="Interaction" type="Area3D" parent="." node_paths=PackedStringArray("_sitting_position", "linked_scrpit", "visualization")]
+[node name="Seat" parent="." node_paths=PackedStringArray("linked_scrpit") instance=ExtResource("2_eiotj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.309, 0)
-script = ExtResource("1_kuotl")
-_sitting_position = NodePath(".")
 linked_scrpit = NodePath("..")
-visualization = NodePath("CollisionShape3D/Visualization")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Interaction"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
-shape = SubResource("BoxShape3D_e7auc")
-
-[node name="Visualization" type="CSGBox3D" parent="Interaction/CollisionShape3D"]
-material_override = SubResource("StandardMaterial3D_bfsqf")
-size = Vector3(1, 0.2, 1)
