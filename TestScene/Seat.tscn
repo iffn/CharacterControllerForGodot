@@ -9,11 +9,10 @@ size = Vector3(1, 0.2, 1)
 transparency = 1
 albedo_color = Color(0, 1, 1, 0.16078432)
 
-[node name="Seat" type="Area3D" node_paths=PackedStringArray("_sitting_position", "linked_scrpit", "visualization")]
+[node name="Seat" type="Area3D" node_paths=PackedStringArray("invisible_when_occupied", "_sitting_position")]
 script = ExtResource("1_3v0am")
+invisible_when_occupied = [NodePath("CollisionShape3D/Visualization")]
 _sitting_position = NodePath(".")
-linked_scrpit = NodePath("")
-visualization = NodePath("CollisionShape3D/Visualization")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)

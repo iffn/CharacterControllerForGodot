@@ -2,10 +2,13 @@ extends Area3D
 
 class_name Seat
 
+@export var process_when_occupied : Array[Node]
+@export var physics_process_when_occupied : Array[Node]
+@export var no_process_when_occupied : Array[Node]
+@export var no_physics_process_when_occupied : Array[Node]
+@export var visible_when_occupied : Array[VisualInstance3D]
+@export var invisible_when_occupied : Array[VisualInstance3D]
 @export var _sitting_position : Node3D
-@export var linked_scrpit : Node
-@export var toggle_physics_process : bool = false
-@export var visualization : VisualInstance3D
 
 var sitting_position : Node3D:
 	get:
@@ -22,12 +25,23 @@ var occupied_localy : bool:
 		_update_occupied()
 
 func _update_occupied() -> void:
-	if(linked_scrpit != null):
-		linked_scrpit.set_process(_occupied_localy)
-		if(toggle_physics_process):
-			linked_scrpit.set_physics_process(_occupied_localy)
-	if(visualization != null):
-		visualization.visible = !occupied_localy
+	for node in process_when_occupied:
+		node.set_process(_occupied_localy)
+		
+	for node in physics_process_when_occupied:
+		node.set_physics_process(_occupied_localy)
+	
+	for node in no_process_when_occupied:
+		node.set_process(!_occupied_localy)
+		
+	for node in no_physics_process_when_occupied:
+		node.set_physics_process(!_occupied_localy)
+	
+	for node in visible_when_occupied:
+		node.visible = occupied_localy
+	
+	for node in invisible_when_occupied:
+		node.visible = !occupied_localy
 
 func _ready() -> void:
 	_update_occupied()

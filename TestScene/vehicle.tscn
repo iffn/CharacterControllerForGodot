@@ -18,6 +18,6 @@ size = Vector3(1.1318359, 1.2252197, 0.15484619)
 transform = Transform3D(0.99999464, 0, -0.003281213, 0, 1, 0, 0.003281213, 0, 0.99999464, 0.049430847, 0.0022653937, 0.084162)
 size = Vector3(2.8095703, 0.1060791, 0.61035156)
 
-[node name="Seat" parent="." node_paths=PackedStringArray("linked_scrpit") instance=ExtResource("2_eiotj")]
+[node name="Seat" parent="." node_paths=PackedStringArray("process_when_occupied") instance=ExtResource("2_eiotj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.309, 0)
-linked_scrpit = NodePath("..")
+process_when_occupied = [NodePath("..")]
