@@ -221,10 +221,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		var x := mm.relative.x * _mouse_sensitivity
 		var y := mm.relative.y * _mouse_sensitivity
 		_input_mouse_turn += Vector2(x, y)
-
-	# Unlock mouse when pressing Escape
+	
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		
 	if _current_movement_system:
 		_current_movement_system.input_event(event)
