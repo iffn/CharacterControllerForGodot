@@ -99,6 +99,16 @@ var head_position_world: Vector3:
 		return _head.global_position
 
 # --- Rotation ---
+var body_visual_rotation_relative: Vector3:
+	set(value):
+		# Use the local transform instead of the global transform
+		var t := _body_visual.transform
+		t.basis = Basis.from_euler(value)
+		_body_visual.transform = t
+	get:
+		# Return the euler angles from the local transform
+		return _body_visual.transform.basis.get_euler()
+
 var body_visual_rotation_world: Vector3:
 	set(value):
 		var t := _body_visual.global_transform
