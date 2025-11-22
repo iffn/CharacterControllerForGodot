@@ -5,7 +5,17 @@ class_name Sit
 @export var _crouch_height_factor: float = 0.5
 @export var _stand_up_system : MovementSystem
 
-var current_seat : Seat
+var _current_seat : Seat
+
+var current_seat : Seat:
+	set(value):
+		if(_current_seat):
+			_current_seat.occupied_localy = false;
+		_current_seat = value
+		if(_current_seat):
+			_current_seat.occupied_localy = true;
+	get:
+		return _current_seat
 
 func enable() -> void:
 	super()
