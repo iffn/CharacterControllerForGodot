@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c7wjy2cr7stg1"]
+[gd_scene load_steps=16 format=3 uid="uid://c7wjy2cr7stg1"]
 
 [ext_resource type="Script" uid="uid://brui060p06pk5" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/Main/FirstPersonPlayerController.gd" id="1_yfdmq"]
 [ext_resource type="Script" uid="uid://708yngopb0s7" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/Main/MovementSystem.gd" id="2_yfdmq"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://d0efl4ih880ok" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Interact.gd" id="11_4gol3"]
 [ext_resource type="Script" uid="uid://duvs61rhra8la" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Sit.gd" id="12_a8vfv"]
 [ext_resource type="Script" uid="uid://c3eatras5lhvk" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/SitDown.gd" id="13_7ghuu"]
+[ext_resource type="Script" uid="uid://depxeh0slwq52" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/Environment/PlayerRespawn.gd" id="14_7ghuu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4yxqe"]
 radius = 0.2
@@ -110,3 +111,12 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Interaction text"
 clip_text = true
+
+[node name="RespawnText" type="Label" parent="UI" node_paths=PackedStringArray("player", "control_indicator")]
+offset_right = 68.0
+offset_bottom = 34.0
+text = "Press Home to respawn
+Press F2 to toggle this message"
+script = ExtResource("14_7ghuu")
+player = NodePath("../..")
+control_indicator = NodePath(".")
