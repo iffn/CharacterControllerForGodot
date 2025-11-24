@@ -9,10 +9,14 @@ class_name SitDown
 var seat : Seat
 
 func enable() -> void:
+	if(seat):
+		seat.activation_state = Seat.Activations.IDLE
 	seat = null
 	set_display_text("")
 
 func disable() -> void:
+	if(seat):
+		seat.activation_state = Seat.Activations.IDLE
 	seat = null
 	set_display_text("")
 
@@ -45,14 +49,21 @@ func callable_physics_process(delta: float) -> void:
 		if(current_collider):
 			var new_seat := current_collider as Seat
 			if(new_seat != seat):
+				if(seat):
+					seat.activation_state = Seat.Activations.IDLE
 				if(new_seat):
 					set_display_text(new_seat.interaction_text)
+					new_seat.activation_state = new_seat.Activations.ACTIVE
 				else:
 					set_display_text("")
 				seat = new_seat
 		else:
+			if(seat):
+				seat.activation_state = Seat.Activations.IDLE
 			seat = null
 			set_display_text("")
 	else:
+		if(seat):
+				seat.activation_state = Seat.Activations.IDLE
 		seat = null
 		set_display_text("")
