@@ -6,8 +6,8 @@
 [ext_resource type="PhysicsMaterial" uid="uid://xfnea64byw7b" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/physics_material_stairs.tres" id="3_t2jar"]
 [ext_resource type="PhysicsMaterial" uid="uid://ct60fdl06o8qm" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/physics_material_ice.tres" id="4_e7auc"]
 [ext_resource type="PackedScene" uid="uid://c7wjy2cr7stg1" path="res://iffnsStuff/CharacterControllerForGodot/FirstPersonPlayerController.tscn" id="6_t2jar"]
-[ext_resource type="PackedScene" uid="uid://d5yqmd3rjvpl" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/Environment/WaterBox.tscn" id="7_e7auc"]
-[ext_resource type="PackedScene" uid="uid://gdwjvanamfd8" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/vehicle.tscn" id="8_bfsqf"]
+[ext_resource type="PackedScene" uid="uid://d5yqmd3rjvpl" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/WaterBox.tscn" id="7_e7auc"]
+[ext_resource type="PackedScene" uid="uid://ciqlcp0hmcbqd" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/vehicle.tscn" id="8_bfsqf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e7auc"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
