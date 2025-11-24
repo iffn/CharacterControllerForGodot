@@ -2,16 +2,26 @@ extends MovementModule
 
 class_name Interact
 
-var collider := Object
+@export var interaction_text : Label
+
+var interactible : Interactible
+
+func set_display_text(new_text : String):
+	interaction_text.text = new_text
 
 func input_event(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			var current_collider = collider
-			if(current_collider):
-				var interactible := current_collider as Interactible
-				if(interactible):
-					interactible.Interact()
+			if(interactible):
+				interactible.Interact()
+
+func enable() -> void:
+	interactible = null
+	set_display_text("")
+
+func disable() -> void:
+	interactible = null
+	set_display_text("")
 
 func callable_physics_process(delta: float) -> void:
 	var head_position_world := linked_player_controller.head_position_world
@@ -30,8 +40,14 @@ func callable_physics_process(delta: float) -> void:
 	if hit:
 		var current_collider: Object = hit["collider"]
 		if(current_collider):
-			collider = current_collider
+			var new_interactible := current_collider as Interactible
+			if(new_interactible != interactible):
+				if(new_interactible):
+					set_display_text(new_interactible.interaction_text)
+				else:
+					set_display_text("")
+				interactible = new_interactible
 		else:
-			collider = null
+			set_display_text("")
 	else:
-			collider = null
+		set_display_text("")

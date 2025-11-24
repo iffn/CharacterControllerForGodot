@@ -2,20 +2,29 @@ extends MovementModule
 
 class_name SitDown
 
+@export var interaction_text : Label
 @export var sitting_system : MovementSystem
 @export var sit_movement : Sit
 
-var collider := Object
+var seat : Seat
+
+func enable() -> void:
+	seat = null
+	set_display_text("")
+
+func disable() -> void:
+	seat = null
+	set_display_text("")
+
+func set_display_text(new_text : String):
+	interaction_text.text = new_text
 
 func input_event(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			var current_collider = collider
-			if(current_collider):
-				var seat := current_collider as Seat
-				if(seat):
-					sit_movement.current_seat = seat
-					linked_player_controller.current_movement_system = sitting_system
+			if(seat):
+				sit_movement.current_seat = seat
+				linked_player_controller.current_movement_system = sitting_system
 
 func callable_physics_process(delta: float) -> void:
 	var head_position_world := linked_player_controller.head_position_world
@@ -34,8 +43,16 @@ func callable_physics_process(delta: float) -> void:
 	if hit:
 		var current_collider: Object = hit["collider"]
 		if(current_collider):
-			collider = current_collider
+			var new_seat := current_collider as Seat
+			if(new_seat != seat):
+				if(new_seat):
+					set_display_text(new_seat.interaction_text)
+				else:
+					set_display_text("")
+				seat = new_seat
 		else:
-			collider = null
+			seat = null
+			set_display_text("")
 	else:
-			collider = null
+		seat = null
+		set_display_text("")

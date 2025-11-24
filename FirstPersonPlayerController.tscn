@@ -78,16 +78,35 @@ _movement_system_to_switch_to = NodePath("../../Systems/NormalMovement")
 script = ExtResource("10_itkap")
 linked_swim_detector = NodePath("../SwimDetector")
 
-[node name="Interact" type="Node" parent="Modules"]
+[node name="Interact" type="Node" parent="Modules" node_paths=PackedStringArray("interaction_text")]
 script = ExtResource("11_4gol3")
+interaction_text = NodePath("../../UI/Interaction text")
 
 [node name="Sit" type="Node" parent="Modules" node_paths=PackedStringArray("_stand_up_system")]
 script = ExtResource("12_a8vfv")
 _stand_up_system = NodePath("../../Systems/NormalMovement")
 metadata/_custom_type_script = "uid://duvs61rhra8la"
 
-[node name="SitDown" type="Node" parent="Modules" node_paths=PackedStringArray("sitting_system", "sit_movement")]
+[node name="SitDown" type="Node" parent="Modules" node_paths=PackedStringArray("interaction_text", "sitting_system", "sit_movement")]
 script = ExtResource("13_7ghuu")
+interaction_text = NodePath("../../UI/Interaction text")
 sitting_system = NodePath("../../Systems/Sitting")
 sit_movement = NodePath("../Sit")
 metadata/_custom_type_script = "uid://c3eatras5lhvk"
+
+[node name="UI" type="Node" parent="."]
+
+[node name="Interaction text" type="Label" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 11.0
+offset_top = 9.0
+offset_right = 185.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Interaction text"
+clip_text = true

@@ -2,6 +2,7 @@ extends Area3D
 
 class_name Seat
 
+@export var _interaction_text : String
 @export var process_when_occupied : Array[Node]
 @export var physics_process_when_occupied : Array[Node]
 @export var no_process_when_occupied : Array[Node]
@@ -9,6 +10,10 @@ class_name Seat
 @export var visible_when_occupied : Array[VisualInstance3D]
 @export var invisible_when_occupied : Array[VisualInstance3D]
 @export var _sitting_position : Node3D
+
+var interaction_text : String:
+	get:
+		return _interaction_text
 
 var sitting_position : Node3D:
 	get:
