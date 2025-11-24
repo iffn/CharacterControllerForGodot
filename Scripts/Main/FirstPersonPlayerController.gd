@@ -46,6 +46,7 @@ func reparent_visual_body_if_assigned(new_parent : Node3D):
 		global_position = _body_visual.global_position
 		global_rotation = _body_visual.global_rotation
 		_body_visual.reparent(self)
+		rotation = Vector3(0,rotation.y,0)
 	else:
 		_body_visual.reparent(new_parent)
 		_body_visual.position = Vector3(0,0,0)
