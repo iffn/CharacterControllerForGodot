@@ -36,8 +36,7 @@ func get_out() -> void:
 	current_seat = null
 	linked_player_controller.reparent_visual_body_if_assigned(null)
 
-func callable_process(delta: float) -> void:
-	super(delta)
-	if(Input.is_action_just_pressed("jump")):
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("jump"):
 		get_out()
 		linked_player_controller.current_movement_system = _stand_up_system

@@ -18,7 +18,7 @@ func _ready() -> void:
 	save_spawn_location()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action("respawn"):
+	if event.is_action_pressed("respawn"):
 		respawn()
 	elif event.is_action_pressed("toggle_message"):
 		control_indicator.visible = !control_indicator.visible
