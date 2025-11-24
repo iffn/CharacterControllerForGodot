@@ -11,6 +11,7 @@ func save_spawn_location():
 	spawn_rotation = player.global_rotation
 
 func respawn():
+	player.current_movement_system = player._default_movement_system
 	player.global_position = spawn_position
 	player.global_rotation = spawn_rotation
 

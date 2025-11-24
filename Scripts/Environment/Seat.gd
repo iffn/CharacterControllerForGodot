@@ -51,8 +51,9 @@ var occupied_localy : bool:
 	get:
 		return _occupied_localy
 	set(value):
-		_occupied_localy = value
-		_update_occupied()
+		if(_occupied_localy != value):
+			_occupied_localy = value
+			_update_occupied()
 
 func _update_occupied() -> void:
 	for node in process_when_occupied:
