@@ -5,6 +5,7 @@ class_name SitDown
 @export var interaction_text : Label
 @export var sitting_system : MovementSystem
 @export var sit_movement : Sit
+@export_flags_3d_physics var ray_collision_mask: int = 1
 
 var seat : Seat
 
@@ -40,6 +41,7 @@ func callable_physics_process(delta: float) -> void:
 		head_position_world + look_direction * 100
 	)
 	
+	query.collision_mask = ray_collision_mask
 	query.collide_with_areas = true
 	
 	var hit: Dictionary = space.intersect_ray(query)

@@ -3,6 +3,7 @@ extends MovementModule
 class_name Interact
 
 @export var interaction_text : Label
+@export_flags_3d_physics var ray_collision_mask: int = 1
 
 var interactible : Interactible
 
@@ -33,6 +34,7 @@ func callable_physics_process(delta: float) -> void:
 		head_position_world + look_direction * 100
 	)
 	
+	query.collision_mask = ray_collision_mask
 	query.collide_with_areas = true
 	
 	var hit: Dictionary = space.intersect_ray(query)
