@@ -110,7 +110,6 @@ offset_bottom = 37.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Interaction text"
-clip_text = true
 
 [node name="RespawnText" type="Label" parent="UI" node_paths=PackedStringArray("player", "control_indicator")]
 offset_right = 68.0
