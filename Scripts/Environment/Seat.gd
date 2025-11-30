@@ -25,6 +25,9 @@ var _activation_state : Activations
 
 var activation_state : Activations:
 	set(value):
+		if(_occupied_localy && _activation_state != Activations.INVISIBLE):
+			return
+		
 		_activation_state = value
 		match value:
 			Activations.INVISIBLE:
