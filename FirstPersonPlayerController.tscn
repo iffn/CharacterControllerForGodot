@@ -47,7 +47,7 @@ movement_modules_in_execution_order = [NodePath("../../Modules/Turn"), NodePath(
 
 [node name="Sitting" type="Node" parent="Systems" node_paths=PackedStringArray("movement_modules_in_execution_order")]
 script = ExtResource("2_yfdmq")
-movement_modules_in_execution_order = [NodePath("../../Modules/Turn"), NodePath("../../Modules/Sit")]
+movement_modules_in_execution_order = [NodePath("../../Modules/Turn"), NodePath("../../Modules/Sit"), NodePath("../../Modules/Interact")]
 
 [node name="Modules" type="Node" parent="."]
 
