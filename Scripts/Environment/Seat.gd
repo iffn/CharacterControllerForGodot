@@ -12,6 +12,10 @@ class_name Seat
 @export var visible_when_occupied : Array[VisualInstance3D]
 @export var invisible_when_occupied : Array[VisualInstance3D]
 
+@export var process_mode_enabled_when_occupied : Array[Node]
+@export var process_mode_disabled_when_occupied : Array[Node]
+
+
 @export var idle_visualizer : Node3D
 @export var active_visualizer : Node3D
 
@@ -76,6 +80,12 @@ func _update_occupied() -> void:
 	
 	for node in invisible_when_occupied:
 		node.visible = !occupied_localy
+	
+	for node in process_mode_enabled_when_occupied:
+		node.process_mode = Node.PROCESS_MODE_INHERIT if occupied_localy else Node.PROCESS_MODE_DISABLED
+	
+	for node in process_mode_disabled_when_occupied:
+		node.process_mode = Node.PROCESS_MODE_DISABLED if occupied_localy else Node.PROCESS_MODE_INHERIT
 	
 	if(occupied_localy):
 		activation_state = Activations.INVISIBLE
