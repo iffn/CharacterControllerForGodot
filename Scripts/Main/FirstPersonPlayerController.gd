@@ -207,6 +207,7 @@ func _ready() -> void:
 	_current_movement_system = _default_movement_system
 	if _current_movement_system:
 		_current_movement_system.setup(self)
+		_current_movement_system.enable()
 	
 	var capsule = $CollisionShape3D.shape as CapsuleShape3D
 	if(capsule):

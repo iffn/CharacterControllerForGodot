@@ -25,12 +25,16 @@ func enable() -> void:
 	for i in _all_valid_modules.size():
 		var module := _all_valid_modules[i]
 		module.enable()
+		module.set_process(true)
+		module.set_physics_process(true)
 	pass
 
 func disable() -> void:
 	for i in _all_valid_modules.size():
 		var module := _all_valid_modules[i]
 		module.disable()
+		module.set_process(false)
+		module.set_physics_process(false)
 	pass
 
 func input_event(event: InputEvent) -> void:
