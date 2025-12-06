@@ -31,7 +31,7 @@ func input_event(event: InputEvent) -> void:
 				sit_movement.current_seat = seat
 				linked_player_controller.current_movement_system = sitting_system
 
-func callable_physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var head_position_world := linked_player_controller.head_position_world
 	var look_direction := linked_player_controller.look_direction_world
 	var space: PhysicsDirectSpaceState3D = linked_player_controller.physics_space

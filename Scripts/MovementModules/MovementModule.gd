@@ -25,9 +25,3 @@ func _ready() -> void:
 	if !_setup_ran:
 		set_process(false)
 		set_physics_process(false)
-
-func callable_process(delta: float) -> void:
-	pass
-
-func callable_physics_process(delta: float) -> void:
-	pass

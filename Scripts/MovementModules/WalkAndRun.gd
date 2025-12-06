@@ -1,7 +1,7 @@
 extends MovementModule
 class_name WalkAndRun
 
-func callable_physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	# Get input
 	var input: Vector2 = linked_player_controller.input_move_direction_fwd_right
 	

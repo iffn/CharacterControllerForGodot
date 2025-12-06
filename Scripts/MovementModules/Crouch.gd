@@ -11,7 +11,7 @@ func disable() -> void:
 	if(Input.is_action_pressed("crouch")):
 		linked_player_controller.height_multiplier = 1
 
-func callable_physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if(Input.is_action_just_pressed("crouch")):
 		linked_player_controller.height_multiplier = _crouch_height_factor
 		

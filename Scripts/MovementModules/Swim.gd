@@ -6,7 +6,7 @@ class_name Swim
 @export var swim_normal_speed: float = 3
 @export var swim_fast_speed: float = 5
 
-func callable_physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var head_position_world := linked_player_controller.head_position_world
 	
 	var head_in_water := linked_swim_detector.in_fluid(head_position_world)

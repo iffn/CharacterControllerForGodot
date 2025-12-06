@@ -2,7 +2,7 @@ extends MovementModule
 
 class_name Slide
 
-func callable_physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	# Friction formulas:
 	# ------------------
 	# α = acos(Ny)

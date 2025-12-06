@@ -16,8 +16,7 @@ func in_fluid(sample_point_world: Vector3) -> bool:
 				return true
 	return false
 
-func callable_physics_process(delta: float) -> void:
-	
+func _physics_process(delta: float) -> void:
 	if(_swimming):
 		if(_movement_system_to_switch_to):
 			if(!in_fluid(linked_player_controller.head_position_world)

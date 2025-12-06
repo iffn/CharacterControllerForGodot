@@ -13,6 +13,11 @@ class_name FirstPersonPlayerController
 @export var _mouse_sensitivity: float = 0.002
 @export var _collider: CollisionShape3D
 
+# --- Direct access ---
+var mouse_sensitivity: float:
+	get:
+		return _mouse_sensitivity
+
 # --- Internal values ---
 var GRAVITY: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var _input_mouse_turn: Vector2 = Vector2.ZERO
@@ -220,12 +225,6 @@ func _ready() -> void:
 	_default_movement_system.enable()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		var mm := event as InputEventMouseMotion
-		var x := mm.relative.x * _mouse_sensitivity
-		var y := mm.relative.y * _mouse_sensitivity
-		_input_mouse_turn += Vector2(x, y)
-	
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -238,10 +237,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		_current_movement_system.input_event(event)
 
 func _process(delta: float) -> void:
-	if _current_movement_system:
-		_current_movement_system.callable_process(delta)
-	
-	_input_mouse_turn = Vector2.ZERO
+	pass
 
 func _physics_process(delta: float) -> void:
 	if(_physics_active):
@@ -250,9 +246,6 @@ func _physics_process(delta: float) -> void:
 		current_rotation += current_rotation_visual
 		rotation = current_rotation
 		_body_visual.rotation = Vector3.ZERO
-	
-	if _current_movement_system:
-		_current_movement_system.callable_physics_process(delta)
 	
 	if(_physics_active):
 		move_and_slide()

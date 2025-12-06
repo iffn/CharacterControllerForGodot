@@ -1,16 +1,17 @@
 extends MovementModule
 class_name Turn
 
-func callable_process(delta: float) -> void:
-	_set_body_rotation(delta)
-	_set_head_rotation(delta)
-
-func _set_body_rotation(delta: float) -> void:
-	var rot := linked_player_controller.body_visual_rotation_relative
-	rot.y -= linked_player_controller.input_mouse_turn.x
-	linked_player_controller.body_visual_rotation_relative = rot
-
-func _set_head_rotation(delta: float) -> void:
-	var hrot := linked_player_controller.head_rotation
-	hrot.x -= linked_player_controller.input_mouse_turn.y
-	linked_player_controller.head_rotation = hrot
+func input_event(event: InputEvent) -> void:
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		var mm := event as InputEventMouseMotion
+		var x := mm.relative.x * linked_player_controller.mouse_sensitivity
+		var y := mm.relative.y * linked_player_controller.mouse_sensitivity
+		var _input_mouse_turn = Vector2(x, y)
+		
+		var rot := linked_player_controller.body_visual_rotation_relative
+		rot.y -= x
+		linked_player_controller.body_visual_rotation_relative = rot
+		
+		var hrot := linked_player_controller.head_rotation
+		hrot.x -= y
+		linked_player_controller.head_rotation = hrot

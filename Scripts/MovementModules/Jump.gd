@@ -4,8 +4,7 @@ class_name Jump
 var jump_active: bool = false
 var jump_start_velocity = 0
 
-func callable_physics_process(delta: float) -> void:
-	
+func _physics_process(delta: float) -> void:
 	if(linked_player_controller.is_on_floor()):
 		if(linked_player_controller.input_jump_just_pressed):
 			linked_player_controller.add_vertical_velocity(linked_player_controller.jump_velocity)
