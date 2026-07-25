@@ -1,13 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://dhmnfl1itdtv6"]
+[gd_scene format=3 uid="uid://dhmnfl1itdtv6"]
 
-[ext_resource type="PackedScene" uid="uid://ca8vmp5yxsnui" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/TestWorldParkour.blend" id="1_jou5r"]
-[ext_resource type="PackedScene" uid="uid://dcw42850ri2f5" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/TestWorldStations.blend" id="2_mfj8b"]
-[ext_resource type="Material" uid="uid://wa0y2wly4iyr" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/333333.tres" id="2_ypm7t"]
-[ext_resource type="PhysicsMaterial" uid="uid://xfnea64byw7b" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/physics_material_stairs.tres" id="3_t2jar"]
-[ext_resource type="PhysicsMaterial" uid="uid://ct60fdl06o8qm" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/physics_material_ice.tres" id="4_e7auc"]
-[ext_resource type="PackedScene" uid="uid://c7wjy2cr7stg1" path="res://iffnsStuff/CharacterControllerForGodot/FirstPersonPlayerController.tscn" id="6_t2jar"]
-[ext_resource type="PackedScene" uid="uid://d5yqmd3rjvpl" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/WaterBox.tscn" id="7_e7auc"]
-[ext_resource type="PackedScene" uid="uid://ciqlcp0hmcbqd" path="res://iffnsStuff/CharacterControllerForGodot/TestScene/vehicle.tscn" id="8_bfsqf"]
+[ext_resource type="PackedScene" uid="uid://ca8vmp5yxsnui" path="res://CharacterControllerForGodot/TestScene/TestWorldParkour.blend" id="1_jou5r"]
+[ext_resource type="PackedScene" uid="uid://dcw42850ri2f5" path="res://CharacterControllerForGodot/TestScene/TestWorldStations.blend" id="2_mfj8b"]
+[ext_resource type="Material" uid="uid://wa0y2wly4iyr" path="res://CharacterControllerForGodot/TestScene/333333.tres" id="2_ypm7t"]
+[ext_resource type="PhysicsMaterial" uid="uid://xfnea64byw7b" path="res://CharacterControllerForGodot/TestScene/physics_material_stairs.tres" id="3_t2jar"]
+[ext_resource type="PhysicsMaterial" uid="uid://ct60fdl06o8qm" path="res://CharacterControllerForGodot/TestScene/physics_material_ice.tres" id="4_e7auc"]
+[ext_resource type="PackedScene" uid="uid://c7wjy2cr7stg1" path="res://CharacterControllerForGodot/FirstPersonPlayerController.tscn" id="6_t2jar"]
+[ext_resource type="PackedScene" uid="uid://d5yqmd3rjvpl" path="res://CharacterControllerForGodot/TestScene/WaterBox.tscn" id="7_e7auc"]
+[ext_resource type="PackedScene" uid="uid://ek71m0gh25lu" path="res://CharacterControllerForGodot/SetupControls.tscn" id="8_36v8g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e7auc"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -25,59 +25,58 @@ glow_enabled = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_bfsqf"]
 size = Vector3(46, 0, 10)
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D" type="Node3D" unique_id=1932722200]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1008775422]
 environment = SubResource("Environment_u0clc")
 
-[node name="TestWorldStations" parent="." instance=ExtResource("2_mfj8b")]
+[node name="TestWorldStations" parent="." unique_id=497454121 instance=ExtResource("2_mfj8b")]
 
-[node name="Base" parent="TestWorldStations" index="0"]
+[node name="Base" parent="TestWorldStations" index="0" unique_id=1475532225]
 material_override = ExtResource("2_ypm7t")
 
-[node name="StaticBody3D" parent="TestWorldStations/HigherFriction" index="0"]
+[node name="StaticBody3D" parent="TestWorldStations/HigherFriction" parent_id_path=PackedInt32Array(497454121, 1332247753) index="0" unique_id=147376133]
 physics_material_override = ExtResource("3_t2jar")
 
-[node name="StaticBody3D" parent="TestWorldStations/LowerFriction" index="0"]
+[node name="StaticBody3D" parent="TestWorldStations/LowerFriction" parent_id_path=PackedInt32Array(497454121, 1026002237) index="0" unique_id=265682780]
 physics_material_override = ExtResource("4_e7auc")
 
-[node name="TestWorldParkour" parent="." instance=ExtResource("1_jou5r")]
+[node name="TestWorldParkour" parent="." unique_id=151153926 instance=ExtResource("1_jou5r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
 
-[node name="Base" parent="TestWorldParkour" index="0"]
+[node name="Base" parent="TestWorldParkour" index="0" unique_id=1008981391]
 material_override = ExtResource("2_ypm7t")
 
-[node name="CollisionShape3D" parent="TestWorldParkour/Base/StaticBody3D" index="0"]
+[node name="CollisionShape3D" parent="TestWorldParkour/Base/StaticBody3D" parent_id_path=PackedInt32Array(151153926, 1256228304) index="0" unique_id=1984577548]
 visible = false
 
-[node name="CollisionShape3D" parent="TestWorldParkour/Slide/StaticBody3D" index="0"]
+[node name="CollisionShape3D" parent="TestWorldParkour/Slide/StaticBody3D" parent_id_path=PackedInt32Array(151153926, 1243284402) index="0" unique_id=1529626599]
 visible = false
 
-[node name="CollisionShape3D" parent="TestWorldParkour/TopFace/StaticBody3D" index="0"]
+[node name="CollisionShape3D" parent="TestWorldParkour/TopFace/StaticBody3D" parent_id_path=PackedInt32Array(151153926, 772843572) index="0" unique_id=563951168]
 visible = false
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1090894416]
 transform = Transform3D(0.862169, 0, -0.50662076, 0.24903321, 0.87084514, 0.4238056, 0.44118822, -0.49155745, 0.7508157, 0, 6.165958, 2.799644)
 
-[node name="FirstPersonPlayer" parent="." instance=ExtResource("6_t2jar")]
+[node name="FirstPersonPlayer" parent="." unique_id=304225795 instance=ExtResource("6_t2jar")]
 transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 2.4710832, 0, -0.97419786)
 
-[node name="WaterBox" parent="." instance=ExtResource("7_e7auc")]
+[node name="WaterBox" parent="." unique_id=680409266 instance=ExtResource("7_e7auc")]
 transform = Transform3D(4.3468018, 0, 0, 0, 3.0207229, 0, 0, 0, 9.847115, 18, -1.6090122, -6.234873)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=229669982]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 5)
 material_override = ExtResource("2_ypm7t")
 size = Vector3(46, 0, 10)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D" unique_id=1544718625]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/StaticBody3D" unique_id=187814507]
 visible = false
 shape = SubResource("BoxShape3D_bfsqf")
 
-[node name="Vehicle" parent="." instance=ExtResource("8_bfsqf")]
-transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 0, 0.25430524, 2.2609625)
+[node name="SetupControls" parent="." unique_id=1595231349 instance=ExtResource("8_36v8g")]
 
 [editable path="TestWorldStations"]
 [editable path="TestWorldParkour"]

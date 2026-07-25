@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="InputCollection" format=3 uid="uid://dhc5nrjr5at4j"]
+
+[ext_resource type="Script" uid="uid://fjjjq54nt2ir" path="res://CharacterControllerForGodot/InputSystem/Scripts/InputResource.gd" id="1_8upcm"]
+[ext_resource type="Resource" uid="uid://daj3r004we3ve" path="res://CharacterControllerForGodot/InputSystem/Inputs/move_forward.tres" id="2_3dyw8"]
+[ext_resource type="Resource" uid="uid://b44gn6lwh86bv" path="res://CharacterControllerForGodot/InputSystem/Inputs/move_backward.tres" id="3_c8ie1"]
+[ext_resource type="Resource" uid="uid://d3ufts0le6kdu" path="res://CharacterControllerForGodot/InputSystem/Inputs/move_left.tres" id="4_noule"]
+[ext_resource type="Resource" uid="uid://bxcyp7nsrxiwf" path="res://CharacterControllerForGodot/InputSystem/Inputs/move_right.tres" id="5_gn2k8"]
+[ext_resource type="Script" uid="uid://btp2mu70cenul" path="res://CharacterControllerForGodot/InputSystem/Scripts/InputCollection.gd" id="6_d048w"]
+[ext_resource type="Resource" uid="uid://c3vff5afvkb7q" path="res://CharacterControllerForGodot/InputSystem/Inputs/sprint.tres" id="6_ncp5j"]
+[ext_resource type="Resource" uid="uid://c1ivfsmbqokyv" path="res://CharacterControllerForGodot/InputSystem/Inputs/jump.tres" id="7_0kcbf"]
+[ext_resource type="Resource" uid="uid://da03v71o5mphj" path="res://CharacterControllerForGodot/InputSystem/Inputs/crouch.tres" id="8_0kcbf"]
+[ext_resource type="Resource" uid="uid://boat401leg7lc" path="res://CharacterControllerForGodot/InputSystem/Inputs/respawn.tres" id="9_gc26k"]
+[ext_resource type="Resource" uid="uid://3hw5wyf2rxuc" path="res://CharacterControllerForGodot/InputSystem/Inputs/toggle_message.tres" id="10_l42kx"]
+
+[resource]
+script = ExtResource("6_d048w")
+inputs = Array[ExtResource("1_8upcm")]([ExtResource("2_3dyw8"), ExtResource("3_c8ie1"), ExtResource("4_noule"), ExtResource("5_gn2k8"), ExtResource("6_ncp5j"), ExtResource("7_0kcbf"), ExtResource("8_0kcbf"), ExtResource("9_gc26k"), ExtResource("10_l42kx")])

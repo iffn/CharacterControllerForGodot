@@ -4,18 +4,20 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dcw42850ri2f5"
-path="res://.godot/imported/TestWorldStations.blend-9b0c262138a9d6dba1486adfa2a4ffd7.scn"
+path="res://.godot/imported/TestWorldStations.blend-445fc15d76fa98d04957a31f9267a2ee.scn"
 
 [deps]
 
-source_file="res://iffnsStuff/CharacterControllerForGodot/TestScene/TestWorldStations.blend"
-dest_files=["res://.godot/imported/TestWorldStations.blend-9b0c262138a9d6dba1486adfa2a4ffd7.scn"]
+source_file="res://CharacterControllerForGodot/TestScene/TestWorldStations.blend"
+dest_files=["res://.godot/imported/TestWorldStations.blend-445fc15d76fa98d04957a31f9267a2ee.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
 nodes/root_script=null
+mesh_library/use_node_names_as_mesh_names=false
+array_mesh/deduplicate_surfaces=true
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -44,10 +46,11 @@ blender/nodes/punctual_lights=true
 blender/nodes/cameras=true
 blender/nodes/custom_properties=true
 blender/nodes/modifiers=1
-blender/meshes/colors=false
+blender/meshes/vertex_colors=2
 blender/meshes/uvs=true
 blender/meshes/normals=true
 blender/meshes/export_geometry_nodes_instances=false
+blender/meshes/gpu_instances=false
 blender/meshes/tangents=true
 blender/meshes/skins=2
 blender/meshes/export_bones_deforming_mesh_only=false
@@ -57,3 +60,4 @@ blender/animation/limit_playback=true
 blender/animation/always_sample=true
 blender/animation/group_tracks=true
 gltf/naming_version=2
+gltf/texture_map_mode=0

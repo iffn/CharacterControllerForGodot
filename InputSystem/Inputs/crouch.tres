@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="InputResource" format=3 uid="uid://da03v71o5mphj"]
+
+[ext_resource type="Script" uid="uid://fjjjq54nt2ir" path="res://CharacterControllerForGodot/InputSystem/Scripts/InputResource.gd" id="1_yb70c"]
+
+[resource]
+script = ExtResource("1_yb70c")
+input_name = "crouch"
+input = 4194326

@@ -1,102 +1,102 @@
-[gd_scene load_steps=16 format=3 uid="uid://c7wjy2cr7stg1"]
+[gd_scene format=3 uid="uid://c7wjy2cr7stg1"]
 
-[ext_resource type="Script" uid="uid://brui060p06pk5" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/Main/FirstPersonPlayerController.gd" id="1_yfdmq"]
-[ext_resource type="Script" uid="uid://708yngopb0s7" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/Main/MovementSystem.gd" id="2_yfdmq"]
-[ext_resource type="Script" uid="uid://bk2bpyaqun1t3" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Turn.gd" id="3_wp7lj"]
-[ext_resource type="Script" uid="uid://imgxjuek8i62" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/WalkAndRun.gd" id="4_omjub"]
-[ext_resource type="Script" uid="uid://bftfb7n0yykke" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Jump.gd" id="5_wp7lj"]
-[ext_resource type="Script" uid="uid://doiaqxcomokpf" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Fall.gd" id="6_occdn"]
-[ext_resource type="Script" uid="uid://dkogmlwhmi2q0" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Slide.gd" id="7_cemnv"]
-[ext_resource type="Script" uid="uid://bv2o4y78s4soj" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Crouch.gd" id="8_2kfa4"]
-[ext_resource type="Script" uid="uid://daa0dusgybip3" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/SwimDetector.gd" id="9_6l6vu"]
-[ext_resource type="Script" uid="uid://cb6pp3owy1gai" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Swim.gd" id="10_itkap"]
-[ext_resource type="Script" uid="uid://d0efl4ih880ok" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Interact.gd" id="11_4gol3"]
-[ext_resource type="Script" uid="uid://duvs61rhra8la" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/Sit.gd" id="12_a8vfv"]
-[ext_resource type="Script" uid="uid://c3eatras5lhvk" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/MovementModules/SitDown.gd" id="13_7ghuu"]
-[ext_resource type="Script" uid="uid://depxeh0slwq52" path="res://iffnsStuff/CharacterControllerForGodot/Scripts/Environment/PlayerRespawn.gd" id="14_7ghuu"]
+[ext_resource type="Script" uid="uid://brui060p06pk5" path="res://CharacterControllerForGodot/Scripts/Main/FirstPersonPlayerController.gd" id="1_yfdmq"]
+[ext_resource type="Script" uid="uid://708yngopb0s7" path="res://CharacterControllerForGodot/Scripts/Main/MovementSystem.gd" id="2_yfdmq"]
+[ext_resource type="Script" uid="uid://bk2bpyaqun1t3" path="res://CharacterControllerForGodot/Scripts/MovementModules/Turn.gd" id="3_wp7lj"]
+[ext_resource type="Script" uid="uid://imgxjuek8i62" path="res://CharacterControllerForGodot/Scripts/MovementModules/WalkAndRun.gd" id="4_omjub"]
+[ext_resource type="Script" uid="uid://bftfb7n0yykke" path="res://CharacterControllerForGodot/Scripts/MovementModules/Jump.gd" id="5_wp7lj"]
+[ext_resource type="Script" uid="uid://doiaqxcomokpf" path="res://CharacterControllerForGodot/Scripts/MovementModules/Fall.gd" id="6_occdn"]
+[ext_resource type="Script" uid="uid://dkogmlwhmi2q0" path="res://CharacterControllerForGodot/Scripts/MovementModules/Slide.gd" id="7_cemnv"]
+[ext_resource type="Script" uid="uid://bv2o4y78s4soj" path="res://CharacterControllerForGodot/Scripts/MovementModules/Crouch.gd" id="8_2kfa4"]
+[ext_resource type="Script" uid="uid://daa0dusgybip3" path="res://CharacterControllerForGodot/Scripts/MovementModules/SwimDetector.gd" id="9_6l6vu"]
+[ext_resource type="Script" uid="uid://cb6pp3owy1gai" path="res://CharacterControllerForGodot/Scripts/MovementModules/Swim.gd" id="10_itkap"]
+[ext_resource type="Script" uid="uid://d0efl4ih880ok" path="res://CharacterControllerForGodot/Scripts/MovementModules/Interact.gd" id="11_4gol3"]
+[ext_resource type="Script" uid="uid://duvs61rhra8la" path="res://CharacterControllerForGodot/Scripts/MovementModules/Sit.gd" id="12_a8vfv"]
+[ext_resource type="Script" uid="uid://c3eatras5lhvk" path="res://CharacterControllerForGodot/Scripts/MovementModules/SitDown.gd" id="13_7ghuu"]
+[ext_resource type="Script" uid="uid://depxeh0slwq52" path="res://CharacterControllerForGodot/Scripts/Environment/PlayerRespawn.gd" id="14_7ghuu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4yxqe"]
 radius = 0.2
 height = 1.65
 
-[node name="FirstPersonPlayer" type="CharacterBody3D" node_paths=PackedStringArray("_body_visual", "_head", "_default_movement_system", "_collider")]
+[node name="FirstPersonPlayer" type="CharacterBody3D" unique_id=2145661081 node_paths=PackedStringArray("_body_visual", "_head", "_default_movement_system", "_collider")]
 script = ExtResource("1_yfdmq")
 _body_visual = NodePath("VisualBody")
 _head = NodePath("VisualBody/Camera3D")
 _default_movement_system = NodePath("Systems/NormalMovement")
 _collider = NodePath("CollisionShape3D")
 
-[node name="VisualBody" type="Node3D" parent="."]
+[node name="VisualBody" type="Node3D" parent="." unique_id=815939771]
 
-[node name="Camera3D" type="Camera3D" parent="VisualBody"]
+[node name="Camera3D" type="Camera3D" parent="VisualBody" unique_id=1998349958]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1365152634]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.825, 0)
 shape = SubResource("CapsuleShape3D_4yxqe")
 
-[node name="Systems" type="Node" parent="."]
+[node name="Systems" type="Node" parent="." unique_id=1706349266]
 
-[node name="NormalMovement" type="Node" parent="Systems" node_paths=PackedStringArray("movement_modules_in_execution_order")]
+[node name="NormalMovement" type="Node" parent="Systems" unique_id=1942837159 node_paths=PackedStringArray("movement_modules_in_execution_order")]
 script = ExtResource("2_yfdmq")
 movement_modules_in_execution_order = [NodePath("../../Modules/Turn"), NodePath("../../Modules/WalkAndRun"), NodePath("../../Modules/Jump"), NodePath("../../Modules/Fall"), NodePath("../../Modules/Slide"), NodePath("../../Modules/Crouch"), NodePath("../../Modules/SwimDetector"), NodePath("../../Modules/Interact"), NodePath("../../Modules/SitDown")]
 
-[node name="Swim" type="Node" parent="Systems" node_paths=PackedStringArray("movement_modules_in_execution_order")]
+[node name="Swim" type="Node" parent="Systems" unique_id=1763593898 node_paths=PackedStringArray("movement_modules_in_execution_order")]
 script = ExtResource("2_yfdmq")
 movement_modules_in_execution_order = [NodePath("../../Modules/Turn"), NodePath("../../Modules/SwimDetector"), NodePath("../../Modules/Swim"), NodePath("../../Modules/Interact"), NodePath("../../Modules/SitDown")]
 
-[node name="Sitting" type="Node" parent="Systems" node_paths=PackedStringArray("movement_modules_in_execution_order")]
+[node name="Sitting" type="Node" parent="Systems" unique_id=1085985883 node_paths=PackedStringArray("movement_modules_in_execution_order")]
 script = ExtResource("2_yfdmq")
 movement_modules_in_execution_order = [NodePath("../../Modules/Turn"), NodePath("../../Modules/Sit"), NodePath("../../Modules/Interact")]
 
-[node name="Modules" type="Node" parent="."]
+[node name="Modules" type="Node" parent="." unique_id=1590338620]
 
-[node name="Turn" type="Node" parent="Modules"]
+[node name="Turn" type="Node" parent="Modules" unique_id=971491033]
 script = ExtResource("3_wp7lj")
 
-[node name="WalkAndRun" type="Node" parent="Modules"]
+[node name="WalkAndRun" type="Node" parent="Modules" unique_id=1252249990]
 script = ExtResource("4_omjub")
 
-[node name="Jump" type="Node" parent="Modules"]
+[node name="Jump" type="Node" parent="Modules" unique_id=2115811720]
 script = ExtResource("5_wp7lj")
 
-[node name="Fall" type="Node" parent="Modules"]
+[node name="Fall" type="Node" parent="Modules" unique_id=405685752]
 script = ExtResource("6_occdn")
 
-[node name="Slide" type="Node" parent="Modules"]
+[node name="Slide" type="Node" parent="Modules" unique_id=44734253]
 script = ExtResource("7_cemnv")
 
-[node name="Crouch" type="Node" parent="Modules"]
+[node name="Crouch" type="Node" parent="Modules" unique_id=1081577564]
 script = ExtResource("8_2kfa4")
 
-[node name="SwimDetector" type="Node" parent="Modules" node_paths=PackedStringArray("_swim_system_to_switch_to", "_movement_system_to_switch_to")]
+[node name="SwimDetector" type="Node" parent="Modules" unique_id=1526472910 node_paths=PackedStringArray("_swim_system_to_switch_to", "_movement_system_to_switch_to")]
 script = ExtResource("9_6l6vu")
 _swim_system_to_switch_to = NodePath("../../Systems/Swim")
 _movement_system_to_switch_to = NodePath("../../Systems/NormalMovement")
 
-[node name="Swim" type="Node" parent="Modules" node_paths=PackedStringArray("linked_swim_detector")]
+[node name="Swim" type="Node" parent="Modules" unique_id=499271477 node_paths=PackedStringArray("linked_swim_detector")]
 script = ExtResource("10_itkap")
 linked_swim_detector = NodePath("../SwimDetector")
 
-[node name="Interact" type="Node" parent="Modules" node_paths=PackedStringArray("interaction_text")]
+[node name="Interact" type="Node" parent="Modules" unique_id=256193009 node_paths=PackedStringArray("interaction_text")]
 script = ExtResource("11_4gol3")
 interaction_text = NodePath("../../UI/Interaction text")
 
-[node name="Sit" type="Node" parent="Modules" node_paths=PackedStringArray("_stand_up_system")]
+[node name="Sit" type="Node" parent="Modules" unique_id=8769676 node_paths=PackedStringArray("_stand_up_system")]
 script = ExtResource("12_a8vfv")
 _stand_up_system = NodePath("../../Systems/NormalMovement")
 metadata/_custom_type_script = "uid://duvs61rhra8la"
 
-[node name="SitDown" type="Node" parent="Modules" node_paths=PackedStringArray("interaction_text", "sitting_system", "sit_movement")]
+[node name="SitDown" type="Node" parent="Modules" unique_id=1740079734 node_paths=PackedStringArray("interaction_text", "sitting_system", "sit_movement")]
 script = ExtResource("13_7ghuu")
 interaction_text = NodePath("../../UI/Interaction text")
 sitting_system = NodePath("../../Systems/Sitting")
 sit_movement = NodePath("../Sit")
 metadata/_custom_type_script = "uid://c3eatras5lhvk"
 
-[node name="UI" type="Node" parent="."]
+[node name="UI" type="Node" parent="." unique_id=2074884260]
 
-[node name="Interaction text" type="Label" parent="UI"]
+[node name="Interaction text" type="Label" parent="UI" unique_id=1078218805]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -110,7 +110,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Interaction text"
 
-[node name="RespawnText" type="Label" parent="UI" node_paths=PackedStringArray("player", "control_indicator")]
+[node name="RespawnText" type="Label" parent="UI" unique_id=1046637905 node_paths=PackedStringArray("player", "control_indicator")]
 offset_right = 68.0
 offset_bottom = 34.0
 text = "Press Home to respawn

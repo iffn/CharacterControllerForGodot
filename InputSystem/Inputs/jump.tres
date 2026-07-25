@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="InputResource" format=3 uid="uid://c1ivfsmbqokyv"]
+
+[ext_resource type="Script" uid="uid://fjjjq54nt2ir" path="res://CharacterControllerForGodot/InputSystem/Scripts/InputResource.gd" id="1_31brg"]
+
+[resource]
+script = ExtResource("1_31brg")
+input_name = "sprint"
+input = 4194325

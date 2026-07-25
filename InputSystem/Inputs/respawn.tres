@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InputResource" format=3 uid="uid://boat401leg7lc"]
+
+[ext_resource type="Script" uid="uid://fjjjq54nt2ir" path="res://CharacterControllerForGodot/InputSystem/Scripts/InputResource.gd" id="1_kipjg"]
+
+[resource]
+script = ExtResource("1_kipjg")
+input_name = "respawn"
+input = 4194317
+metadata/_custom_type_script = "uid://fjjjq54nt2ir"

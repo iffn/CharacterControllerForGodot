@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ek71m0gh25lu"]
+
+[ext_resource type="Script" uid="uid://ca6bxi2ph21ij" path="res://CharacterControllerForGodot/InputSystem/Scripts/SetupInputs.gd" id="1_sbun0"]
+[ext_resource type="Resource" uid="uid://dhc5nrjr5at4j" path="res://CharacterControllerForGodot/InputSystem/Inputs/player_controls.tres" id="2_crta6"]
+
+[node name="SetupControls" type="Node" unique_id=1595231349]
+script = ExtResource("1_sbun0")
+input_collection = ExtResource("2_crta6")
